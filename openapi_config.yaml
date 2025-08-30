@@ -1,0 +1,3 @@
+project_name_override: spotify-async
+content_type_overrides:
+  image/jpeg: application/octet-stream
