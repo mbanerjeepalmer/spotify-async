@@ -1,5 +1,5 @@
 import pytest
-from generator.helpers import get_spotify_token, parse_retry_after
+from spotify_async.helpers import get_spotify_token, parse_retry_after
 
 from spotify_async import AuthenticatedClient
 from spotify_async.api.search import search
