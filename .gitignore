@@ -1,4 +1,5 @@
 spotify-async/
+.env
 
 # Python-generated files
 __pycache__/
