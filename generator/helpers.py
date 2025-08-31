@@ -1,4 +1,3 @@
-import asyncio
 from email.utils import parsedate_to_datetime
 from datetime import datetime, timezone
 import os
@@ -51,5 +50,8 @@ def parse_retry_after(value: str | None) -> float:
         try:
             dt = parsedate_to_datetime(value)
             return max(0.0, (dt - datetime.now(timezone.utc)).total_seconds())
-        except Exception:
+        except Exception as err:
+            logger.warning(
+                f"Unexpected exception when parsing Retry-After value: {err}"
+            )
             return 1.0
