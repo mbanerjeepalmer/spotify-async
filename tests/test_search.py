@@ -1,13 +1,13 @@
 import pytest
-from spotify_async.helpers import get_spotify_token, parse_retry_after
+from spotipython.helpers import get_spotify_token, parse_retry_after
 
-from spotify_async import AuthenticatedClient
-from spotify_async.api.search import search
-from spotify_async.models.paging_track_object import PagingTrackObject
-from spotify_async.models.search_response_200 import SearchResponse200
-from spotify_async.models.search_response_401 import SearchResponse401
-from spotify_async.models.search_response_403 import SearchResponse403
-from spotify_async.models.search_type_item import SearchTypeItem
+from spotipython import AuthenticatedClient
+from spotipython.api.search import search
+from spotipython.models.paging_track_object import PagingTrackObject
+from spotipython.models.search_response_200 import SearchResponse200
+from spotipython.models.search_response_401 import SearchResponse401
+from spotipython.models.search_response_403 import SearchResponse403
+from spotipython.models.search_type_item import SearchTypeItem
 
 from dotenv import load_dotenv
 
