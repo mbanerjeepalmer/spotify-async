@@ -12,8 +12,9 @@ pip install spotipython
 
 
 ```python
-# tests/test_search.py
-async def test_take_on_me():
+# See also tests/test_search.py
+
+async def take_on_me():
     token = await get_spotify_token(
         client_id="get_this_from_the_dashboard", 
         client_secret="and this too"
@@ -30,6 +31,14 @@ async def test_take_on_me():
                 limit=1,
                 client=client,
             )
+            
+            if resp.status_code == HTTPStatus.TOO_MANY_REQUESTS:  # 429
+                ra = resp.headers.get("Retry-After")
+                delay = parse_retry_after(ra)
+
+                logger.warning(f"429; retrying in {delay:.2f}s")
+                await asyncio.sleep(delay)
+                continue
 
             results = resp.parsed
             assert isinstance(results, SearchResponse200), (
