@@ -1,9 +1,10 @@
-import subprocess
+from pathlib import Path
 import shutil
 import os
-import sys
 import logging
-from pathlib import Path
+from openapi_python_client import generate
+from openapi_python_client.cli import _process_config
+from openapi_python_client.config import MetaType
 
 logger = logging.getLogger(__name__)
 
@@ -12,44 +13,23 @@ def generate_openapi_client():
     """
     Generates a Python client using openapi-python-client from unofficial 'fixed' OpenAPI specification.
     """
-    try:
-        command = [
-            "uv",
-            "run",
-            "openapi-python-client",
-            "generate",
-            "--url",
-            "https://raw.githubusercontent.com/APIs-guru/openapi-directory/main/APIs/spotify.com/1.0.0/openapi.yaml",
-            "--meta",
-            "uv",
-            "--config",
-            "openapi_config.yaml",
-        ]
 
-        result = subprocess.run(command, check=True, capture_output=True, text=True)
-
-        logger.debug(result.stdout)
-        logger.info("Generated client")
-        if result.stderr:
-            logger.debug(result.stderr)
-            logger.warning("Encountered errors during generation")
-
-    except subprocess.CalledProcessError as e:
-        print(f"Error generating client: {e}", file=sys.stderr)
-        print("Command output:", e.stdout, file=sys.stderr)
-        print("Command error:", e.stderr, file=sys.stderr)
-        sys.exit(1)
-    except FileNotFoundError:
-        print(
-            "Error: 'uv' or 'openapi-python-client' not found. Make sure you have them installed.",
-            file=sys.stderr,
-        )
-        sys.exit(1)
+    open_api_config = _process_config(
+        url="https://raw.githubusercontent.com/APIs-guru/openapi-directory/main/APIs/spotify.com/1.0.0/openapi.yaml",
+        config_path=Path("./openapi_config.yaml"),
+        meta_type=MetaType.UV,
+        overwrite=True,
+        path=None,
+        file_encoding="utf-8",
+        output_path=None,
+    )
+    generate(config=open_api_config)
+    logger.info("Generated client successfully.")
 
 
 def copy_client():
     source = "generated-client/generated_client"
-    target = "spotify_async"
+    target = "spotipython"
 
     if not os.path.exists(source):
         raise FileNotFoundError(f"Source directory not found: {source}")
