@@ -172,7 +172,7 @@ _end copy-paste_
 ### Background
 I built this because `spotipy`, the most popular Spotify Python SDK, isn't typed, nor does it support async, as far as I can see. None of the other libraries have been updated in the past few months. And in any case, I needed an interface I could trust.
 
-I needed it for [Zacusca](https://zacusca/net), on which [vol.best](https://vol.best) is built. They're both [Banquet](https://bnqt.app) products.
+I needed it for [Zacusca](https://zacusca.net), on which [vol.best](https://vol.best) is built. They're both [Banquet](https://bnqt.app) products.
 
 I decided to publish it in case anyone else finds it helpful.
 
