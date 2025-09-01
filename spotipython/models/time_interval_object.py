@@ -13,49 +13,49 @@ T = TypeVar("T", bound="TimeIntervalObject")
 class TimeIntervalObject:
     """
     Attributes:
+        start (Union[Unset, float]): The starting point (in seconds) of the time interval. Example: 0.49567.
+        duration (Union[Unset, float]): The duration (in seconds) of the time interval. Example: 2.18749.
         confidence (Union[Unset, float]): The confidence, from 0.0 to 1.0, of the reliability of the interval. Example:
             0.925.
-        duration (Union[Unset, float]): The duration (in seconds) of the time interval. Example: 2.18749.
-        start (Union[Unset, float]): The starting point (in seconds) of the time interval. Example: 0.49567.
     """
 
-    confidence: Union[Unset, float] = UNSET
-    duration: Union[Unset, float] = UNSET
     start: Union[Unset, float] = UNSET
+    duration: Union[Unset, float] = UNSET
+    confidence: Union[Unset, float] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        confidence = self.confidence
+        start = self.start
 
         duration = self.duration
 
-        start = self.start
+        confidence = self.confidence
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
-        if confidence is not UNSET:
-            field_dict["confidence"] = confidence
-        if duration is not UNSET:
-            field_dict["duration"] = duration
         if start is not UNSET:
             field_dict["start"] = start
+        if duration is not UNSET:
+            field_dict["duration"] = duration
+        if confidence is not UNSET:
+            field_dict["confidence"] = confidence
 
         return field_dict
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        confidence = d.pop("confidence", UNSET)
+        start = d.pop("start", UNSET)
 
         duration = d.pop("duration", UNSET)
 
-        start = d.pop("start", UNSET)
+        confidence = d.pop("confidence", UNSET)
 
         time_interval_object = cls(
-            confidence=confidence,
-            duration=duration,
             start=start,
+            duration=duration,
+            confidence=confidence,
         )
 
         time_interval_object.additional_properties = d

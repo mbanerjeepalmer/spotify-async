@@ -97,7 +97,7 @@ def sync_detailed(
         GetSeveralAudioFeaturesResponse429,
     ]
 ]:
-    """Get Tracks' Audio Features
+    """Get Several Tracks' Audio Features
 
      Get audio features for multiple tracks based on their Spotify IDs.
 
@@ -138,7 +138,7 @@ def sync(
         GetSeveralAudioFeaturesResponse429,
     ]
 ]:
-    """Get Tracks' Audio Features
+    """Get Several Tracks' Audio Features
 
      Get audio features for multiple tracks based on their Spotify IDs.
 
@@ -174,7 +174,7 @@ async def asyncio_detailed(
         GetSeveralAudioFeaturesResponse429,
     ]
 ]:
-    """Get Tracks' Audio Features
+    """Get Several Tracks' Audio Features
 
      Get audio features for multiple tracks based on their Spotify IDs.
 
@@ -213,7 +213,7 @@ async def asyncio(
         GetSeveralAudioFeaturesResponse429,
     ]
 ]:
-    """Get Tracks' Audio Features
+    """Get Several Tracks' Audio Features
 
      Get audio features for multiple tracks based on their Spotify IDs.
 

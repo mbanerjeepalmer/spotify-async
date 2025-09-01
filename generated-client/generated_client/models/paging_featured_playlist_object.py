@@ -17,7 +17,8 @@ T = TypeVar("T", bound="PagingFeaturedPlaylistObject")
 class PagingFeaturedPlaylistObject:
     """
     Attributes:
-        message (Union[Unset, str]):
+        message (Union[Unset, str]): The localized message of a playlist.
+             Example: Popular Playlists.
         playlists (Union[Unset, PagingPlaylistObject]):
     """
 

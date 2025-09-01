@@ -107,7 +107,9 @@ def sync_detailed(
 ]:
     """Seek To Position
 
-     Seeks to the given position in the user’s currently playing track.
+     Seeks to the given position in the user’s currently playing track. This API only works for users who
+    have Spotify Premium. The order of execution is not guaranteed when you use this API with other
+    Player API endpoints.
 
     Args:
         position_ms (int): The position in milliseconds to seek to. Must be a
@@ -153,7 +155,9 @@ def sync(
 ]:
     """Seek To Position
 
-     Seeks to the given position in the user’s currently playing track.
+     Seeks to the given position in the user’s currently playing track. This API only works for users who
+    have Spotify Premium. The order of execution is not guaranteed when you use this API with other
+    Player API endpoints.
 
     Args:
         position_ms (int): The position in milliseconds to seek to. Must be a
@@ -194,7 +198,9 @@ async def asyncio_detailed(
 ]:
     """Seek To Position
 
-     Seeks to the given position in the user’s currently playing track.
+     Seeks to the given position in the user’s currently playing track. This API only works for users who
+    have Spotify Premium. The order of execution is not guaranteed when you use this API with other
+    Player API endpoints.
 
     Args:
         position_ms (int): The position in milliseconds to seek to. Must be a
@@ -238,7 +244,9 @@ async def asyncio(
 ]:
     """Seek To Position
 
-     Seeks to the given position in the user’s currently playing track.
+     Seeks to the given position in the user’s currently playing track. This API only works for users who
+    have Spotify Premium. The order of execution is not guaranteed when you use this API with other
+    Player API endpoints.
 
     Args:
         position_ms (int): The position in milliseconds to seek to. Must be a

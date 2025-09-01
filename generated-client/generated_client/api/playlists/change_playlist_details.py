@@ -92,8 +92,8 @@ def sync_detailed(
         playlist_id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of
             the playlist.
              Example: 3cEYpjA9oz9GiPac4AsH4n.
-        body (ChangePlaylistDetailsBody):  Example: {'description': 'Updated playlist
-            description', 'name': 'Updated Playlist Name', 'public': False}.
+        body (ChangePlaylistDetailsBody):  Example: {'name': 'Updated Playlist Name',
+            'description': 'Updated playlist description', 'public': False}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -132,8 +132,8 @@ def sync(
         playlist_id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of
             the playlist.
              Example: 3cEYpjA9oz9GiPac4AsH4n.
-        body (ChangePlaylistDetailsBody):  Example: {'description': 'Updated playlist
-            description', 'name': 'Updated Playlist Name', 'public': False}.
+        body (ChangePlaylistDetailsBody):  Example: {'name': 'Updated Playlist Name',
+            'description': 'Updated playlist description', 'public': False}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -167,8 +167,8 @@ async def asyncio_detailed(
         playlist_id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of
             the playlist.
              Example: 3cEYpjA9oz9GiPac4AsH4n.
-        body (ChangePlaylistDetailsBody):  Example: {'description': 'Updated playlist
-            description', 'name': 'Updated Playlist Name', 'public': False}.
+        body (ChangePlaylistDetailsBody):  Example: {'name': 'Updated Playlist Name',
+            'description': 'Updated playlist description', 'public': False}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -205,8 +205,8 @@ async def asyncio(
         playlist_id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of
             the playlist.
              Example: 3cEYpjA9oz9GiPac4AsH4n.
-        body (ChangePlaylistDetailsBody):  Example: {'description': 'Updated playlist
-            description', 'name': 'Updated Playlist Name', 'public': False}.
+        body (ChangePlaylistDetailsBody):  Example: {'name': 'Updated Playlist Name',
+            'description': 'Updated playlist description', 'public': False}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -8,13 +8,13 @@ from ...client import AuthenticatedClient, Client
 from ...models.check_if_user_follows_playlist_response_401 import CheckIfUserFollowsPlaylistResponse401
 from ...models.check_if_user_follows_playlist_response_403 import CheckIfUserFollowsPlaylistResponse403
 from ...models.check_if_user_follows_playlist_response_429 import CheckIfUserFollowsPlaylistResponse429
-from ...types import UNSET, Response
+from ...types import UNSET, Response, Unset
 
 
 def _get_kwargs(
     playlist_id: str,
     *,
-    ids: str,
+    ids: Union[Unset, str] = UNSET,
 ) -> dict[str, Any]:
     params: dict[str, Any] = {}
 
@@ -89,7 +89,7 @@ def sync_detailed(
     playlist_id: str,
     *,
     client: AuthenticatedClient,
-    ids: str,
+    ids: Union[Unset, str] = UNSET,
 ) -> Response[
     Union[
         CheckIfUserFollowsPlaylistResponse401,
@@ -98,18 +98,17 @@ def sync_detailed(
         list[bool],
     ]
 ]:
-    """Check if Users Follow Playlist
+    """Check if Current User Follows Playlist
 
-     Check to see if one or more Spotify users are following a specified playlist.
+     Check to see if the current user is following a specified playlist.
 
     Args:
         playlist_id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of
             the playlist.
              Example: 3cEYpjA9oz9GiPac4AsH4n.
-        ids (str): A comma-separated list of [Spotify User IDs](/documentation/web-
-            api/concepts/spotify-uris-ids) ; the ids of the users that you want to check to see if
-            they follow the playlist. Maximum: 5 ids.
-             Example: jmperezperez,thelinmichael,wizzler.
+        ids (Union[Unset, str]): **Deprecated** A single item list containing current user's
+            [Spotify Username](/documentation/web-api/concepts/spotify-uris-ids). Maximum: 1 id.
+             Example: jmperezperez.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -135,7 +134,7 @@ def sync(
     playlist_id: str,
     *,
     client: AuthenticatedClient,
-    ids: str,
+    ids: Union[Unset, str] = UNSET,
 ) -> Optional[
     Union[
         CheckIfUserFollowsPlaylistResponse401,
@@ -144,18 +143,17 @@ def sync(
         list[bool],
     ]
 ]:
-    """Check if Users Follow Playlist
+    """Check if Current User Follows Playlist
 
-     Check to see if one or more Spotify users are following a specified playlist.
+     Check to see if the current user is following a specified playlist.
 
     Args:
         playlist_id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of
             the playlist.
              Example: 3cEYpjA9oz9GiPac4AsH4n.
-        ids (str): A comma-separated list of [Spotify User IDs](/documentation/web-
-            api/concepts/spotify-uris-ids) ; the ids of the users that you want to check to see if
-            they follow the playlist. Maximum: 5 ids.
-             Example: jmperezperez,thelinmichael,wizzler.
+        ids (Union[Unset, str]): **Deprecated** A single item list containing current user's
+            [Spotify Username](/documentation/web-api/concepts/spotify-uris-ids). Maximum: 1 id.
+             Example: jmperezperez.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -176,7 +174,7 @@ async def asyncio_detailed(
     playlist_id: str,
     *,
     client: AuthenticatedClient,
-    ids: str,
+    ids: Union[Unset, str] = UNSET,
 ) -> Response[
     Union[
         CheckIfUserFollowsPlaylistResponse401,
@@ -185,18 +183,17 @@ async def asyncio_detailed(
         list[bool],
     ]
 ]:
-    """Check if Users Follow Playlist
+    """Check if Current User Follows Playlist
 
-     Check to see if one or more Spotify users are following a specified playlist.
+     Check to see if the current user is following a specified playlist.
 
     Args:
         playlist_id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of
             the playlist.
              Example: 3cEYpjA9oz9GiPac4AsH4n.
-        ids (str): A comma-separated list of [Spotify User IDs](/documentation/web-
-            api/concepts/spotify-uris-ids) ; the ids of the users that you want to check to see if
-            they follow the playlist. Maximum: 5 ids.
-             Example: jmperezperez,thelinmichael,wizzler.
+        ids (Union[Unset, str]): **Deprecated** A single item list containing current user's
+            [Spotify Username](/documentation/web-api/concepts/spotify-uris-ids). Maximum: 1 id.
+             Example: jmperezperez.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -220,7 +217,7 @@ async def asyncio(
     playlist_id: str,
     *,
     client: AuthenticatedClient,
-    ids: str,
+    ids: Union[Unset, str] = UNSET,
 ) -> Optional[
     Union[
         CheckIfUserFollowsPlaylistResponse401,
@@ -229,18 +226,17 @@ async def asyncio(
         list[bool],
     ]
 ]:
-    """Check if Users Follow Playlist
+    """Check if Current User Follows Playlist
 
-     Check to see if one or more Spotify users are following a specified playlist.
+     Check to see if the current user is following a specified playlist.
 
     Args:
         playlist_id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of
             the playlist.
              Example: 3cEYpjA9oz9GiPac4AsH4n.
-        ids (str): A comma-separated list of [Spotify User IDs](/documentation/web-
-            api/concepts/spotify-uris-ids) ; the ids of the users that you want to check to see if
-            they follow the playlist. Maximum: 5 ids.
-             Example: jmperezperez,thelinmichael,wizzler.
+        ids (Union[Unset, str]): **Deprecated** A single item list containing current user's
+            [Spotify Username](/documentation/web-api/concepts/spotify-uris-ids). Maximum: 1 id.
+             Example: jmperezperez.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

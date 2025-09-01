@@ -116,8 +116,8 @@ def sync_detailed(
         type_ (GetUsersTopArtistsAndTracksType): The type of entity to return. Valid values:
             `artists` or `tracks`
         time_range (Union[Unset, str]): Over what time frame the affinities are computed. Valid
-            values: `long_term` (calculated from several years of data and including all new data as
-            it becomes available), `medium_term` (approximately last 6 months), `short_term`
+            values: `long_term` (calculated from ~1 year of data and including all new data as it
+            becomes available), `medium_term` (approximately last 6 months), `short_term`
             (approximately last 4 weeks). Default: `medium_term`
              Default: 'medium_term'. Example: medium_term.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
@@ -172,8 +172,8 @@ def sync(
         type_ (GetUsersTopArtistsAndTracksType): The type of entity to return. Valid values:
             `artists` or `tracks`
         time_range (Union[Unset, str]): Over what time frame the affinities are computed. Valid
-            values: `long_term` (calculated from several years of data and including all new data as
-            it becomes available), `medium_term` (approximately last 6 months), `short_term`
+            values: `long_term` (calculated from ~1 year of data and including all new data as it
+            becomes available), `medium_term` (approximately last 6 months), `short_term`
             (approximately last 4 weeks). Default: `medium_term`
              Default: 'medium_term'. Example: medium_term.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
@@ -223,8 +223,8 @@ async def asyncio_detailed(
         type_ (GetUsersTopArtistsAndTracksType): The type of entity to return. Valid values:
             `artists` or `tracks`
         time_range (Union[Unset, str]): Over what time frame the affinities are computed. Valid
-            values: `long_term` (calculated from several years of data and including all new data as
-            it becomes available), `medium_term` (approximately last 6 months), `short_term`
+            values: `long_term` (calculated from ~1 year of data and including all new data as it
+            becomes available), `medium_term` (approximately last 6 months), `short_term`
             (approximately last 4 weeks). Default: `medium_term`
              Default: 'medium_term'. Example: medium_term.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
@@ -277,8 +277,8 @@ async def asyncio(
         type_ (GetUsersTopArtistsAndTracksType): The type of entity to return. Valid values:
             `artists` or `tracks`
         time_range (Union[Unset, str]): Over what time frame the affinities are computed. Valid
-            values: `long_term` (calculated from several years of data and including all new data as
-            it becomes available), `medium_term` (approximately last 6 months), `short_term`
+            values: `long_term` (calculated from ~1 year of data and including all new data as it
+            becomes available), `medium_term` (approximately last 6 months), `short_term`
             (approximately last 4 weeks). Default: `medium_term`
              Default: 'medium_term'. Example: medium_term.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.

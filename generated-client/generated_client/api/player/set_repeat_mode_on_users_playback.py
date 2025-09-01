@@ -101,8 +101,8 @@ def sync_detailed(
 ]:
     """Set Repeat Mode
 
-     Set the repeat mode for the user's playback. Options are repeat-track,
-    repeat-context, and off.
+     Set the repeat mode for the user's playback. This API only works for users who have Spotify Premium.
+    The order of execution is not guaranteed when you use this API with other Player API endpoints.
 
     Args:
         state (str): **track**, **context** or **off**.<br/>
@@ -149,8 +149,8 @@ def sync(
 ]:
     """Set Repeat Mode
 
-     Set the repeat mode for the user's playback. Options are repeat-track,
-    repeat-context, and off.
+     Set the repeat mode for the user's playback. This API only works for users who have Spotify Premium.
+    The order of execution is not guaranteed when you use this API with other Player API endpoints.
 
     Args:
         state (str): **track**, **context** or **off**.<br/>
@@ -192,8 +192,8 @@ async def asyncio_detailed(
 ]:
     """Set Repeat Mode
 
-     Set the repeat mode for the user's playback. Options are repeat-track,
-    repeat-context, and off.
+     Set the repeat mode for the user's playback. This API only works for users who have Spotify Premium.
+    The order of execution is not guaranteed when you use this API with other Player API endpoints.
 
     Args:
         state (str): **track**, **context** or **off**.<br/>
@@ -238,8 +238,8 @@ async def asyncio(
 ]:
     """Set Repeat Mode
 
-     Set the repeat mode for the user's playback. Options are repeat-track,
-    repeat-context, and off.
+     Set the repeat mode for the user's playback. This API only works for users who have Spotify Premium.
+    The order of execution is not guaranteed when you use this API with other Player API endpoints.
 
     Args:
         state (str): **track**, **context** or **off**.<br/>

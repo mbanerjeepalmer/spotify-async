@@ -101,7 +101,9 @@ def sync_detailed(
 ]:
     """Set Playback Volume
 
-     Set the volume for the user’s current playback device.
+     Set the volume for the user’s current playback device. This API only works for users who have
+    Spotify Premium. The order of execution is not guaranteed when you use this API with other Player
+    API endpoints.
 
     Args:
         volume_percent (int): The volume to set. Must be a value from 0 to 100 inclusive.
@@ -145,7 +147,9 @@ def sync(
 ]:
     """Set Playback Volume
 
-     Set the volume for the user’s current playback device.
+     Set the volume for the user’s current playback device. This API only works for users who have
+    Spotify Premium. The order of execution is not guaranteed when you use this API with other Player
+    API endpoints.
 
     Args:
         volume_percent (int): The volume to set. Must be a value from 0 to 100 inclusive.
@@ -184,7 +188,9 @@ async def asyncio_detailed(
 ]:
     """Set Playback Volume
 
-     Set the volume for the user’s current playback device.
+     Set the volume for the user’s current playback device. This API only works for users who have
+    Spotify Premium. The order of execution is not guaranteed when you use this API with other Player
+    API endpoints.
 
     Args:
         volume_percent (int): The volume to set. Must be a value from 0 to 100 inclusive.
@@ -226,7 +232,9 @@ async def asyncio(
 ]:
     """Set Playback Volume
 
-     Set the volume for the user’s current playback device.
+     Set the volume for the user’s current playback device. This API only works for users who have
+    Spotify Premium. The order of execution is not guaranteed when you use this API with other Player
+    API endpoints.
 
     Args:
         volume_percent (int): The volume to set. Must be a value from 0 to 100 inclusive.

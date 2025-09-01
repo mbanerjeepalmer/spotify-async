@@ -23,40 +23,36 @@ T = TypeVar("T", bound="SearchResponse200")
 class SearchResponse200:
     """
     Attributes:
-        albums (Union[Unset, PagingSimplifiedAlbumObject]):
+        tracks (Union[Unset, PagingTrackObject]):
         artists (Union[Unset, PagingArtistObject]):
-        audiobooks (Union[Unset, PagingSimplifiedAudiobookObject]):
-        episodes (Union[Unset, PagingSimplifiedEpisodeObject]):
+        albums (Union[Unset, PagingSimplifiedAlbumObject]):
         playlists (Union[Unset, PagingPlaylistObject]):
         shows (Union[Unset, PagingSimplifiedShowObject]):
-        tracks (Union[Unset, PagingTrackObject]):
+        episodes (Union[Unset, PagingSimplifiedEpisodeObject]):
+        audiobooks (Union[Unset, PagingSimplifiedAudiobookObject]):
     """
 
-    albums: Union[Unset, "PagingSimplifiedAlbumObject"] = UNSET
+    tracks: Union[Unset, "PagingTrackObject"] = UNSET
     artists: Union[Unset, "PagingArtistObject"] = UNSET
-    audiobooks: Union[Unset, "PagingSimplifiedAudiobookObject"] = UNSET
-    episodes: Union[Unset, "PagingSimplifiedEpisodeObject"] = UNSET
+    albums: Union[Unset, "PagingSimplifiedAlbumObject"] = UNSET
     playlists: Union[Unset, "PagingPlaylistObject"] = UNSET
     shows: Union[Unset, "PagingSimplifiedShowObject"] = UNSET
-    tracks: Union[Unset, "PagingTrackObject"] = UNSET
+    episodes: Union[Unset, "PagingSimplifiedEpisodeObject"] = UNSET
+    audiobooks: Union[Unset, "PagingSimplifiedAudiobookObject"] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        albums: Union[Unset, dict[str, Any]] = UNSET
-        if not isinstance(self.albums, Unset):
-            albums = self.albums.to_dict()
+        tracks: Union[Unset, dict[str, Any]] = UNSET
+        if not isinstance(self.tracks, Unset):
+            tracks = self.tracks.to_dict()
 
         artists: Union[Unset, dict[str, Any]] = UNSET
         if not isinstance(self.artists, Unset):
             artists = self.artists.to_dict()
 
-        audiobooks: Union[Unset, dict[str, Any]] = UNSET
-        if not isinstance(self.audiobooks, Unset):
-            audiobooks = self.audiobooks.to_dict()
-
-        episodes: Union[Unset, dict[str, Any]] = UNSET
-        if not isinstance(self.episodes, Unset):
-            episodes = self.episodes.to_dict()
+        albums: Union[Unset, dict[str, Any]] = UNSET
+        if not isinstance(self.albums, Unset):
+            albums = self.albums.to_dict()
 
         playlists: Union[Unset, dict[str, Any]] = UNSET
         if not isinstance(self.playlists, Unset):
@@ -66,27 +62,31 @@ class SearchResponse200:
         if not isinstance(self.shows, Unset):
             shows = self.shows.to_dict()
 
-        tracks: Union[Unset, dict[str, Any]] = UNSET
-        if not isinstance(self.tracks, Unset):
-            tracks = self.tracks.to_dict()
+        episodes: Union[Unset, dict[str, Any]] = UNSET
+        if not isinstance(self.episodes, Unset):
+            episodes = self.episodes.to_dict()
+
+        audiobooks: Union[Unset, dict[str, Any]] = UNSET
+        if not isinstance(self.audiobooks, Unset):
+            audiobooks = self.audiobooks.to_dict()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
-        if albums is not UNSET:
-            field_dict["albums"] = albums
+        if tracks is not UNSET:
+            field_dict["tracks"] = tracks
         if artists is not UNSET:
             field_dict["artists"] = artists
-        if audiobooks is not UNSET:
-            field_dict["audiobooks"] = audiobooks
-        if episodes is not UNSET:
-            field_dict["episodes"] = episodes
+        if albums is not UNSET:
+            field_dict["albums"] = albums
         if playlists is not UNSET:
             field_dict["playlists"] = playlists
         if shows is not UNSET:
             field_dict["shows"] = shows
-        if tracks is not UNSET:
-            field_dict["tracks"] = tracks
+        if episodes is not UNSET:
+            field_dict["episodes"] = episodes
+        if audiobooks is not UNSET:
+            field_dict["audiobooks"] = audiobooks
 
         return field_dict
 
@@ -101,12 +101,12 @@ class SearchResponse200:
         from ..models.paging_track_object import PagingTrackObject
 
         d = dict(src_dict)
-        _albums = d.pop("albums", UNSET)
-        albums: Union[Unset, PagingSimplifiedAlbumObject]
-        if isinstance(_albums, Unset):
-            albums = UNSET
+        _tracks = d.pop("tracks", UNSET)
+        tracks: Union[Unset, PagingTrackObject]
+        if isinstance(_tracks, Unset):
+            tracks = UNSET
         else:
-            albums = PagingSimplifiedAlbumObject.from_dict(_albums)
+            tracks = PagingTrackObject.from_dict(_tracks)
 
         _artists = d.pop("artists", UNSET)
         artists: Union[Unset, PagingArtistObject]
@@ -115,19 +115,12 @@ class SearchResponse200:
         else:
             artists = PagingArtistObject.from_dict(_artists)
 
-        _audiobooks = d.pop("audiobooks", UNSET)
-        audiobooks: Union[Unset, PagingSimplifiedAudiobookObject]
-        if isinstance(_audiobooks, Unset):
-            audiobooks = UNSET
+        _albums = d.pop("albums", UNSET)
+        albums: Union[Unset, PagingSimplifiedAlbumObject]
+        if isinstance(_albums, Unset):
+            albums = UNSET
         else:
-            audiobooks = PagingSimplifiedAudiobookObject.from_dict(_audiobooks)
-
-        _episodes = d.pop("episodes", UNSET)
-        episodes: Union[Unset, PagingSimplifiedEpisodeObject]
-        if isinstance(_episodes, Unset):
-            episodes = UNSET
-        else:
-            episodes = PagingSimplifiedEpisodeObject.from_dict(_episodes)
+            albums = PagingSimplifiedAlbumObject.from_dict(_albums)
 
         _playlists = d.pop("playlists", UNSET)
         playlists: Union[Unset, PagingPlaylistObject]
@@ -143,21 +136,28 @@ class SearchResponse200:
         else:
             shows = PagingSimplifiedShowObject.from_dict(_shows)
 
-        _tracks = d.pop("tracks", UNSET)
-        tracks: Union[Unset, PagingTrackObject]
-        if isinstance(_tracks, Unset):
-            tracks = UNSET
+        _episodes = d.pop("episodes", UNSET)
+        episodes: Union[Unset, PagingSimplifiedEpisodeObject]
+        if isinstance(_episodes, Unset):
+            episodes = UNSET
         else:
-            tracks = PagingTrackObject.from_dict(_tracks)
+            episodes = PagingSimplifiedEpisodeObject.from_dict(_episodes)
+
+        _audiobooks = d.pop("audiobooks", UNSET)
+        audiobooks: Union[Unset, PagingSimplifiedAudiobookObject]
+        if isinstance(_audiobooks, Unset):
+            audiobooks = UNSET
+        else:
+            audiobooks = PagingSimplifiedAudiobookObject.from_dict(_audiobooks)
 
         search_response_200 = cls(
-            albums=albums,
+            tracks=tracks,
             artists=artists,
-            audiobooks=audiobooks,
-            episodes=episodes,
+            albums=albums,
             playlists=playlists,
             shows=shows,
-            tracks=tracks,
+            episodes=episodes,
+            audiobooks=audiobooks,
         )
 
         search_response_200.additional_properties = d

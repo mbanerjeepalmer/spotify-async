@@ -119,7 +119,7 @@ def sync_detailed(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
 
     Raises:
@@ -173,7 +173,7 @@ def sync(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
 
     Raises:
@@ -222,7 +222,7 @@ async def asyncio_detailed(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
 
     Raises:
@@ -274,7 +274,7 @@ async def asyncio(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
 
     Raises:

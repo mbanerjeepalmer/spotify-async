@@ -11,26 +11,26 @@ T = TypeVar("T", bound="ErrorObject")
 class ErrorObject:
     """
     Attributes:
-        message (str): A short description of the cause of the error.
         status (int): The HTTP status code (also returned in the response header; see [Response Status
             Codes](/documentation/web-api/concepts/api-calls#response-status-codes) for more information).
+        message (str): A short description of the cause of the error.
     """
 
-    message: str
     status: int
+    message: str
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        message = self.message
-
         status = self.status
+
+        message = self.message
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "message": message,
                 "status": status,
+                "message": message,
             }
         )
 
@@ -39,13 +39,13 @@ class ErrorObject:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        message = d.pop("message")
-
         status = d.pop("status")
 
+        message = d.pop("message")
+
         error_object = cls(
-            message=message,
             status=status,
+            message=message,
         )
 
         error_object.additional_properties = d

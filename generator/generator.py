@@ -15,13 +15,13 @@ def generate_openapi_client():
     """
 
     open_api_config = _process_config(
-        url="https://raw.githubusercontent.com/APIs-guru/openapi-directory/main/APIs/spotify.com/1.0.0/openapi.yaml",
+        path=Path("./generator/spotify-web-api.yaml"),
         config_path=Path("./openapi_config.yaml"),
         meta_type=MetaType.UV,
         overwrite=True,
-        path=None,
         file_encoding="utf-8",
         output_path=None,
+        url=None,
     )
     generate(config=open_api_config)
     logger.info("Generated client successfully.")

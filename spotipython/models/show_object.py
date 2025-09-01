@@ -25,11 +25,11 @@ class ShowObject:
         copyrights (list['CopyrightObject']): The copyright statements of the show.
         description (str): A description of the show. HTML tags are stripped away from this field, use
             `html_description` field in case HTML tags are needed.
+        html_description (str): A description of the show. This field may contain HTML tags.
         explicit (bool): Whether or not the show has explicit content (true = yes it does; false = no it does not OR
             unknown).
         external_urls (ExternalUrlObject):
         href (str): A link to the Web API endpoint providing full details of the show.
-        html_description (str): A description of the show. This field may contain HTML tags.
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the show.
         images (list['ImageObject']): The cover art for the show in various sizes, widest first.
         is_externally_hosted (bool): True if all of the shows episodes are hosted outside of Spotify's CDN. This field
@@ -39,19 +39,19 @@ class ShowObject:
         media_type (str): The media type of the show.
         name (str): The name of the episode.
         publisher (str): The publisher of the show.
-        total_episodes (int): The total number of episodes in the show.
         type_ (ShowBaseType): The object type.
         uri (str): The [Spotify URI](/documentation/web-api/concepts/spotify-uris-ids) for the show.
+        total_episodes (int): The total number of episodes in the show.
         episodes (PagingSimplifiedEpisodeObject):
     """
 
     available_markets: list[str]
     copyrights: list["CopyrightObject"]
     description: str
+    html_description: str
     explicit: bool
     external_urls: "ExternalUrlObject"
     href: str
-    html_description: str
     id: str
     images: list["ImageObject"]
     is_externally_hosted: bool
@@ -59,9 +59,9 @@ class ShowObject:
     media_type: str
     name: str
     publisher: str
-    total_episodes: int
     type_: ShowBaseType
     uri: str
+    total_episodes: int
     episodes: "PagingSimplifiedEpisodeObject"
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -75,13 +75,13 @@ class ShowObject:
 
         description = self.description
 
+        html_description = self.html_description
+
         explicit = self.explicit
 
         external_urls = self.external_urls.to_dict()
 
         href = self.href
-
-        html_description = self.html_description
 
         id = self.id
 
@@ -100,11 +100,11 @@ class ShowObject:
 
         publisher = self.publisher
 
-        total_episodes = self.total_episodes
-
         type_ = self.type_.value
 
         uri = self.uri
+
+        total_episodes = self.total_episodes
 
         episodes = self.episodes.to_dict()
 
@@ -115,10 +115,10 @@ class ShowObject:
                 "available_markets": available_markets,
                 "copyrights": copyrights,
                 "description": description,
+                "html_description": html_description,
                 "explicit": explicit,
                 "external_urls": external_urls,
                 "href": href,
-                "html_description": html_description,
                 "id": id,
                 "images": images,
                 "is_externally_hosted": is_externally_hosted,
@@ -126,9 +126,9 @@ class ShowObject:
                 "media_type": media_type,
                 "name": name,
                 "publisher": publisher,
-                "total_episodes": total_episodes,
                 "type": type_,
                 "uri": uri,
+                "total_episodes": total_episodes,
                 "episodes": episodes,
             }
         )
@@ -154,13 +154,13 @@ class ShowObject:
 
         description = d.pop("description")
 
+        html_description = d.pop("html_description")
+
         explicit = d.pop("explicit")
 
         external_urls = ExternalUrlObject.from_dict(d.pop("external_urls"))
 
         href = d.pop("href")
-
-        html_description = d.pop("html_description")
 
         id = d.pop("id")
 
@@ -181,11 +181,11 @@ class ShowObject:
 
         publisher = d.pop("publisher")
 
-        total_episodes = d.pop("total_episodes")
-
         type_ = ShowBaseType(d.pop("type"))
 
         uri = d.pop("uri")
+
+        total_episodes = d.pop("total_episodes")
 
         episodes = PagingSimplifiedEpisodeObject.from_dict(d.pop("episodes"))
 
@@ -193,10 +193,10 @@ class ShowObject:
             available_markets=available_markets,
             copyrights=copyrights,
             description=description,
+            html_description=html_description,
             explicit=explicit,
             external_urls=external_urls,
             href=href,
-            html_description=html_description,
             id=id,
             images=images,
             is_externally_hosted=is_externally_hosted,
@@ -204,9 +204,9 @@ class ShowObject:
             media_type=media_type,
             name=name,
             publisher=publisher,
-            total_episodes=total_episodes,
             type_=type_,
             uri=uri,
+            total_episodes=total_episodes,
             episodes=episodes,
         )
 

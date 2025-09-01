@@ -8,7 +8,6 @@ from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.external_url_object import ExternalUrlObject
-    from ..models.followers_object import FollowersObject
     from ..models.image_object import ImageObject
     from ..models.paging_playlist_track_object import PagingPlaylistTrackObject
     from ..models.playlist_owner_object import PlaylistOwnerObject
@@ -25,7 +24,6 @@ class PlaylistObject:
         description (Union[None, Unset, str]): The playlist description. _Only returned for modified, verified
             playlists, otherwise_ `null`.
         external_urls (Union[Unset, ExternalUrlObject]):
-        followers (Union[Unset, FollowersObject]):
         href (Union[Unset, str]): A link to the Web API endpoint providing full details of the playlist.
         id (Union[Unset, str]): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the playlist.
         images (Union[Unset, list['ImageObject']]): Images for the playlist. The array may be empty or contain up to
@@ -34,9 +32,9 @@ class PlaylistObject:
             (`url`) is temporary and will expire in less than a day._
         name (Union[Unset, str]): The name of the playlist.
         owner (Union[Unset, PlaylistOwnerObject]):
-        public (Union[Unset, bool]): The playlist's public/private status: `true` the playlist is public, `false` the
-            playlist is private, `null` the playlist status is not relevant. For more about public/private status, see
-            [Working with Playlists](/documentation/web-api/concepts/playlists)
+        public (Union[Unset, bool]): The playlist's public/private status (if it is added to the user's profile): `true`
+            the playlist is public, `false` the playlist is private, `null` the playlist status is not relevant. For more
+            about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
         snapshot_id (Union[Unset, str]): The version identifier for the current playlist. Can be supplied in other
             requests to target a specific playlist version
         tracks (Union[Unset, PagingPlaylistTrackObject]):
@@ -47,7 +45,6 @@ class PlaylistObject:
     collaborative: Union[Unset, bool] = UNSET
     description: Union[None, Unset, str] = UNSET
     external_urls: Union[Unset, "ExternalUrlObject"] = UNSET
-    followers: Union[Unset, "FollowersObject"] = UNSET
     href: Union[Unset, str] = UNSET
     id: Union[Unset, str] = UNSET
     images: Union[Unset, list["ImageObject"]] = UNSET
@@ -72,10 +69,6 @@ class PlaylistObject:
         external_urls: Union[Unset, dict[str, Any]] = UNSET
         if not isinstance(self.external_urls, Unset):
             external_urls = self.external_urls.to_dict()
-
-        followers: Union[Unset, dict[str, Any]] = UNSET
-        if not isinstance(self.followers, Unset):
-            followers = self.followers.to_dict()
 
         href = self.href
 
@@ -115,8 +108,6 @@ class PlaylistObject:
             field_dict["description"] = description
         if external_urls is not UNSET:
             field_dict["external_urls"] = external_urls
-        if followers is not UNSET:
-            field_dict["followers"] = followers
         if href is not UNSET:
             field_dict["href"] = href
         if id is not UNSET:
@@ -143,7 +134,6 @@ class PlaylistObject:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.external_url_object import ExternalUrlObject
-        from ..models.followers_object import FollowersObject
         from ..models.image_object import ImageObject
         from ..models.paging_playlist_track_object import PagingPlaylistTrackObject
         from ..models.playlist_owner_object import PlaylistOwnerObject
@@ -166,13 +156,6 @@ class PlaylistObject:
             external_urls = UNSET
         else:
             external_urls = ExternalUrlObject.from_dict(_external_urls)
-
-        _followers = d.pop("followers", UNSET)
-        followers: Union[Unset, FollowersObject]
-        if isinstance(_followers, Unset):
-            followers = UNSET
-        else:
-            followers = FollowersObject.from_dict(_followers)
 
         href = d.pop("href", UNSET)
 
@@ -213,7 +196,6 @@ class PlaylistObject:
             collaborative=collaborative,
             description=description,
             external_urls=external_urls,
-            followers=followers,
             href=href,
             id=id,
             images=images,

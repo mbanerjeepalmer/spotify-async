@@ -23,13 +23,19 @@ T = TypeVar("T", bound="EpisodeObject")
 class EpisodeObject:
     """
     Attributes:
-        audio_preview_url (str): A URL to a 30 second preview (MP3 format) of the episode. `null` if not available.
+        audio_preview_url (Union[None, str]): A URL to a 30 second preview (MP3 format) of the episode. `null` if not
+            available.
              Example: https://p.scdn.co/mp3-preview/2f37da1d4221f40b9d1a98cd191f4d6f1646ad17.
         description (str): A description of the episode. HTML tags are stripped away from this field, use
             `html_description` field in case HTML tags are needed.
              Example: A Spotify podcast sharing fresh insights on important topics of the moment—in a way only Spotify can.
             You’ll hear from experts in the music, podcast and tech industries as we discover and uncover stories about our
             work and the world around us.
+            .
+        html_description (str): A description of the episode. This field may contain HTML tags.
+             Example: <p>A Spotify podcast sharing fresh insights on important topics of the moment—in a way only Spotify
+            can. You’ll hear from experts in the music, podcast and tech industries as we discover and uncover stories about
+            our work and the world around us.</p>
             .
         duration_ms (int): The episode length in milliseconds.
              Example: 1686230.
@@ -38,11 +44,6 @@ class EpisodeObject:
         external_urls (ExternalUrlObject):
         href (str): A link to the Web API endpoint providing full details of the episode.
              Example: https://api.spotify.com/v1/episodes/5Xt5DXGzch68nYYamXrNxZ.
-        html_description (str): A description of the episode. This field may contain HTML tags.
-             Example: <p>A Spotify podcast sharing fresh insights on important topics of the moment—in a way only Spotify
-            can. You’ll hear from experts in the music, podcast and tech industries as we discover and uncover stories about
-            our work and the world around us.</p>
-            .
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the episode.
              Example: 5Xt5DXGzch68nYYamXrNxZ.
         images (list['ImageObject']): The cover art for the episode in various sizes, widest first.
@@ -60,7 +61,6 @@ class EpisodeObject:
         release_date_precision (EpisodeBaseReleaseDatePrecision): The precision with which `release_date` value is
             known.
              Example: day.
-        resume_point (ResumePointObject):
         type_ (EpisodeBaseType): The object type.
         uri (str): The [Spotify URI](/documentation/web-api/concepts/spotify-uris-ids) for the episode.
              Example: spotify:episode:0zLhl3WsOCQHbe1BPTiHgr.
@@ -69,16 +69,17 @@ class EpisodeObject:
             639](https://en.wikipedia.org/wiki/ISO_639) code. This field is deprecated and might be removed in the future.
             Please use the `languages` field instead.
              Example: en.
+        resume_point (Union[Unset, ResumePointObject]):
         restrictions (Union[Unset, EpisodeRestrictionObject]):
     """
 
-    audio_preview_url: str
+    audio_preview_url: Union[None, str]
     description: str
+    html_description: str
     duration_ms: int
     explicit: bool
     external_urls: "ExternalUrlObject"
     href: str
-    html_description: str
     id: str
     images: list["ImageObject"]
     is_externally_hosted: bool
@@ -87,18 +88,21 @@ class EpisodeObject:
     name: str
     release_date: str
     release_date_precision: EpisodeBaseReleaseDatePrecision
-    resume_point: "ResumePointObject"
     type_: EpisodeBaseType
     uri: str
     show: "SimplifiedShowObject"
     language: Union[Unset, str] = UNSET
+    resume_point: Union[Unset, "ResumePointObject"] = UNSET
     restrictions: Union[Unset, "EpisodeRestrictionObject"] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        audio_preview_url: Union[None, str]
         audio_preview_url = self.audio_preview_url
 
         description = self.description
+
+        html_description = self.html_description
 
         duration_ms = self.duration_ms
 
@@ -107,8 +111,6 @@ class EpisodeObject:
         external_urls = self.external_urls.to_dict()
 
         href = self.href
-
-        html_description = self.html_description
 
         id = self.id
 
@@ -129,8 +131,6 @@ class EpisodeObject:
 
         release_date_precision = self.release_date_precision.value
 
-        resume_point = self.resume_point.to_dict()
-
         type_ = self.type_.value
 
         uri = self.uri
@@ -138,6 +138,10 @@ class EpisodeObject:
         show = self.show.to_dict()
 
         language = self.language
+
+        resume_point: Union[Unset, dict[str, Any]] = UNSET
+        if not isinstance(self.resume_point, Unset):
+            resume_point = self.resume_point.to_dict()
 
         restrictions: Union[Unset, dict[str, Any]] = UNSET
         if not isinstance(self.restrictions, Unset):
@@ -149,11 +153,11 @@ class EpisodeObject:
             {
                 "audio_preview_url": audio_preview_url,
                 "description": description,
+                "html_description": html_description,
                 "duration_ms": duration_ms,
                 "explicit": explicit,
                 "external_urls": external_urls,
                 "href": href,
-                "html_description": html_description,
                 "id": id,
                 "images": images,
                 "is_externally_hosted": is_externally_hosted,
@@ -162,7 +166,6 @@ class EpisodeObject:
                 "name": name,
                 "release_date": release_date,
                 "release_date_precision": release_date_precision,
-                "resume_point": resume_point,
                 "type": type_,
                 "uri": uri,
                 "show": show,
@@ -170,6 +173,8 @@ class EpisodeObject:
         )
         if language is not UNSET:
             field_dict["language"] = language
+        if resume_point is not UNSET:
+            field_dict["resume_point"] = resume_point
         if restrictions is not UNSET:
             field_dict["restrictions"] = restrictions
 
@@ -184,9 +189,17 @@ class EpisodeObject:
         from ..models.simplified_show_object import SimplifiedShowObject
 
         d = dict(src_dict)
-        audio_preview_url = d.pop("audio_preview_url")
+
+        def _parse_audio_preview_url(data: object) -> Union[None, str]:
+            if data is None:
+                return data
+            return cast(Union[None, str], data)
+
+        audio_preview_url = _parse_audio_preview_url(d.pop("audio_preview_url"))
 
         description = d.pop("description")
+
+        html_description = d.pop("html_description")
 
         duration_ms = d.pop("duration_ms")
 
@@ -195,8 +208,6 @@ class EpisodeObject:
         external_urls = ExternalUrlObject.from_dict(d.pop("external_urls"))
 
         href = d.pop("href")
-
-        html_description = d.pop("html_description")
 
         id = d.pop("id")
 
@@ -219,8 +230,6 @@ class EpisodeObject:
 
         release_date_precision = EpisodeBaseReleaseDatePrecision(d.pop("release_date_precision"))
 
-        resume_point = ResumePointObject.from_dict(d.pop("resume_point"))
-
         type_ = EpisodeBaseType(d.pop("type"))
 
         uri = d.pop("uri")
@@ -228,6 +237,13 @@ class EpisodeObject:
         show = SimplifiedShowObject.from_dict(d.pop("show"))
 
         language = d.pop("language", UNSET)
+
+        _resume_point = d.pop("resume_point", UNSET)
+        resume_point: Union[Unset, ResumePointObject]
+        if isinstance(_resume_point, Unset):
+            resume_point = UNSET
+        else:
+            resume_point = ResumePointObject.from_dict(_resume_point)
 
         _restrictions = d.pop("restrictions", UNSET)
         restrictions: Union[Unset, EpisodeRestrictionObject]
@@ -239,11 +255,11 @@ class EpisodeObject:
         episode_object = cls(
             audio_preview_url=audio_preview_url,
             description=description,
+            html_description=html_description,
             duration_ms=duration_ms,
             explicit=explicit,
             external_urls=external_urls,
             href=href,
-            html_description=html_description,
             id=id,
             images=images,
             is_externally_hosted=is_externally_hosted,
@@ -252,11 +268,11 @@ class EpisodeObject:
             name=name,
             release_date=release_date,
             release_date_precision=release_date_precision,
-            resume_point=resume_point,
             type_=type_,
             uri=uri,
             show=show,
             language=language,
+            resume_point=resume_point,
             restrictions=restrictions,
         )
 

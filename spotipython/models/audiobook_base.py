@@ -28,11 +28,11 @@ class AudiobookBase:
         copyrights (list['CopyrightObject']): The copyright statements of the audiobook.
         description (str): A description of the audiobook. HTML tags are stripped away from this field, use
             `html_description` field in case HTML tags are needed.
+        html_description (str): A description of the audiobook. This field may contain HTML tags.
         explicit (bool): Whether or not the audiobook has explicit content (true = yes it does; false = no it does not
             OR unknown).
         external_urls (ExternalUrlObject):
         href (str): A link to the Web API endpoint providing full details of the audiobook.
-        html_description (str): A description of the audiobook. This field may contain HTML tags.
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the audiobook.
         images (list['ImageObject']): The cover art for the audiobook in various sizes, widest first.
         languages (list[str]): A list of the languages used in the audiobook, identified by their [ISO
@@ -41,9 +41,9 @@ class AudiobookBase:
         name (str): The name of the audiobook.
         narrators (list['NarratorObject']): The narrator(s) for the audiobook.
         publisher (str): The publisher of the audiobook.
-        total_chapters (int): The number of chapters in this audiobook.
         type_ (AudiobookBaseType): The object type.
         uri (str): The [Spotify URI](/documentation/web-api/concepts/spotify-uris-ids) for the audiobook.
+        total_chapters (int): The number of chapters in this audiobook.
         edition (Union[Unset, str]): The edition of the audiobook.
              Example: Unabridged.
     """
@@ -52,10 +52,10 @@ class AudiobookBase:
     available_markets: list[str]
     copyrights: list["CopyrightObject"]
     description: str
+    html_description: str
     explicit: bool
     external_urls: "ExternalUrlObject"
     href: str
-    html_description: str
     id: str
     images: list["ImageObject"]
     languages: list[str]
@@ -63,9 +63,9 @@ class AudiobookBase:
     name: str
     narrators: list["NarratorObject"]
     publisher: str
-    total_chapters: int
     type_: AudiobookBaseType
     uri: str
+    total_chapters: int
     edition: Union[Unset, str] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -84,13 +84,13 @@ class AudiobookBase:
 
         description = self.description
 
+        html_description = self.html_description
+
         explicit = self.explicit
 
         external_urls = self.external_urls.to_dict()
 
         href = self.href
-
-        html_description = self.html_description
 
         id = self.id
 
@@ -112,11 +112,11 @@ class AudiobookBase:
 
         publisher = self.publisher
 
-        total_chapters = self.total_chapters
-
         type_ = self.type_.value
 
         uri = self.uri
+
+        total_chapters = self.total_chapters
 
         edition = self.edition
 
@@ -128,10 +128,10 @@ class AudiobookBase:
                 "available_markets": available_markets,
                 "copyrights": copyrights,
                 "description": description,
+                "html_description": html_description,
                 "explicit": explicit,
                 "external_urls": external_urls,
                 "href": href,
-                "html_description": html_description,
                 "id": id,
                 "images": images,
                 "languages": languages,
@@ -139,9 +139,9 @@ class AudiobookBase:
                 "name": name,
                 "narrators": narrators,
                 "publisher": publisher,
-                "total_chapters": total_chapters,
                 "type": type_,
                 "uri": uri,
+                "total_chapters": total_chapters,
             }
         )
         if edition is not UNSET:
@@ -176,13 +176,13 @@ class AudiobookBase:
 
         description = d.pop("description")
 
+        html_description = d.pop("html_description")
+
         explicit = d.pop("explicit")
 
         external_urls = ExternalUrlObject.from_dict(d.pop("external_urls"))
 
         href = d.pop("href")
-
-        html_description = d.pop("html_description")
 
         id = d.pop("id")
 
@@ -208,11 +208,11 @@ class AudiobookBase:
 
         publisher = d.pop("publisher")
 
-        total_chapters = d.pop("total_chapters")
-
         type_ = AudiobookBaseType(d.pop("type"))
 
         uri = d.pop("uri")
+
+        total_chapters = d.pop("total_chapters")
 
         edition = d.pop("edition", UNSET)
 
@@ -221,10 +221,10 @@ class AudiobookBase:
             available_markets=available_markets,
             copyrights=copyrights,
             description=description,
+            html_description=html_description,
             explicit=explicit,
             external_urls=external_urls,
             href=href,
-            html_description=html_description,
             id=id,
             images=images,
             languages=languages,
@@ -232,9 +232,9 @@ class AudiobookBase:
             name=name,
             narrators=narrators,
             publisher=publisher,
-            total_chapters=total_chapters,
             type_=type_,
             uri=uri,
+            total_chapters=total_chapters,
             edition=edition,
         )
 

@@ -119,8 +119,8 @@ def sync_detailed(
 ]:
     """Get an Audiobook
 
-     Get Spotify catalog information for a single audiobook.<br />
-    **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+     Get Spotify catalog information for a single audiobook. Audiobooks are only available within the US,
+    UK, Canada, Ireland, New Zealand and Australia markets.
 
     Args:
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids)
@@ -136,7 +136,7 @@ def sync_detailed(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
 
     Raises:
@@ -176,8 +176,8 @@ def sync(
 ]:
     """Get an Audiobook
 
-     Get Spotify catalog information for a single audiobook.<br />
-    **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+     Get Spotify catalog information for a single audiobook. Audiobooks are only available within the US,
+    UK, Canada, Ireland, New Zealand and Australia markets.
 
     Args:
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids)
@@ -193,7 +193,7 @@ def sync(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
 
     Raises:
@@ -228,8 +228,8 @@ async def asyncio_detailed(
 ]:
     """Get an Audiobook
 
-     Get Spotify catalog information for a single audiobook.<br />
-    **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+     Get Spotify catalog information for a single audiobook. Audiobooks are only available within the US,
+    UK, Canada, Ireland, New Zealand and Australia markets.
 
     Args:
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids)
@@ -245,7 +245,7 @@ async def asyncio_detailed(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
 
     Raises:
@@ -283,8 +283,8 @@ async def asyncio(
 ]:
     """Get an Audiobook
 
-     Get Spotify catalog information for a single audiobook.<br />
-    **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+     Get Spotify catalog information for a single audiobook. Audiobooks are only available within the US,
+    UK, Canada, Ireland, New Zealand and Australia markets.
 
     Args:
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids)
@@ -300,7 +300,7 @@ async def asyncio(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
 
     Raises:

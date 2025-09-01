@@ -21,12 +21,13 @@ T = TypeVar("T", bound="AudioAnalysisObject")
 class AudioAnalysisObject:
     """
     Attributes:
+        meta (Union[Unset, AudioAnalysisObjectMeta]):
+        track (Union[Unset, AudioAnalysisObjectTrack]):
         bars (Union[Unset, list['TimeIntervalObject']]): The time intervals of the bars throughout the track. A bar (or
             measure) is a segment of time defined as a given number of beats.
         beats (Union[Unset, list['TimeIntervalObject']]): The time intervals of beats throughout the track. A beat is
             the basic time unit of a piece of music; for example, each tick of a metronome. Beats are typically multiples of
             tatums.
-        meta (Union[Unset, AudioAnalysisObjectMeta]):
         sections (Union[Unset, list['SectionObject']]): Sections are defined by large variations in rhythm or timbre,
             e.g. chorus, verse, bridge, guitar solo, etc. Each section contains its own descriptions of tempo, key, mode,
             time_signature, and loudness.
@@ -34,19 +35,26 @@ class AudioAnalysisObject:
             duration.
         tatums (Union[Unset, list['TimeIntervalObject']]): A tatum represents the lowest regular pulse train that a
             listener intuitively infers from the timing of perceived musical events (segments).
-        track (Union[Unset, AudioAnalysisObjectTrack]):
     """
 
+    meta: Union[Unset, "AudioAnalysisObjectMeta"] = UNSET
+    track: Union[Unset, "AudioAnalysisObjectTrack"] = UNSET
     bars: Union[Unset, list["TimeIntervalObject"]] = UNSET
     beats: Union[Unset, list["TimeIntervalObject"]] = UNSET
-    meta: Union[Unset, "AudioAnalysisObjectMeta"] = UNSET
     sections: Union[Unset, list["SectionObject"]] = UNSET
     segments: Union[Unset, list["SegmentObject"]] = UNSET
     tatums: Union[Unset, list["TimeIntervalObject"]] = UNSET
-    track: Union[Unset, "AudioAnalysisObjectTrack"] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        meta: Union[Unset, dict[str, Any]] = UNSET
+        if not isinstance(self.meta, Unset):
+            meta = self.meta.to_dict()
+
+        track: Union[Unset, dict[str, Any]] = UNSET
+        if not isinstance(self.track, Unset):
+            track = self.track.to_dict()
+
         bars: Union[Unset, list[dict[str, Any]]] = UNSET
         if not isinstance(self.bars, Unset):
             bars = []
@@ -60,10 +68,6 @@ class AudioAnalysisObject:
             for beats_item_data in self.beats:
                 beats_item = beats_item_data.to_dict()
                 beats.append(beats_item)
-
-        meta: Union[Unset, dict[str, Any]] = UNSET
-        if not isinstance(self.meta, Unset):
-            meta = self.meta.to_dict()
 
         sections: Union[Unset, list[dict[str, Any]]] = UNSET
         if not isinstance(self.sections, Unset):
@@ -86,27 +90,23 @@ class AudioAnalysisObject:
                 tatums_item = tatums_item_data.to_dict()
                 tatums.append(tatums_item)
 
-        track: Union[Unset, dict[str, Any]] = UNSET
-        if not isinstance(self.track, Unset):
-            track = self.track.to_dict()
-
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
+        if meta is not UNSET:
+            field_dict["meta"] = meta
+        if track is not UNSET:
+            field_dict["track"] = track
         if bars is not UNSET:
             field_dict["bars"] = bars
         if beats is not UNSET:
             field_dict["beats"] = beats
-        if meta is not UNSET:
-            field_dict["meta"] = meta
         if sections is not UNSET:
             field_dict["sections"] = sections
         if segments is not UNSET:
             field_dict["segments"] = segments
         if tatums is not UNSET:
             field_dict["tatums"] = tatums
-        if track is not UNSET:
-            field_dict["track"] = track
 
         return field_dict
 
@@ -119,6 +119,20 @@ class AudioAnalysisObject:
         from ..models.time_interval_object import TimeIntervalObject
 
         d = dict(src_dict)
+        _meta = d.pop("meta", UNSET)
+        meta: Union[Unset, AudioAnalysisObjectMeta]
+        if isinstance(_meta, Unset):
+            meta = UNSET
+        else:
+            meta = AudioAnalysisObjectMeta.from_dict(_meta)
+
+        _track = d.pop("track", UNSET)
+        track: Union[Unset, AudioAnalysisObjectTrack]
+        if isinstance(_track, Unset):
+            track = UNSET
+        else:
+            track = AudioAnalysisObjectTrack.from_dict(_track)
+
         bars = []
         _bars = d.pop("bars", UNSET)
         for bars_item_data in _bars or []:
@@ -132,13 +146,6 @@ class AudioAnalysisObject:
             beats_item = TimeIntervalObject.from_dict(beats_item_data)
 
             beats.append(beats_item)
-
-        _meta = d.pop("meta", UNSET)
-        meta: Union[Unset, AudioAnalysisObjectMeta]
-        if isinstance(_meta, Unset):
-            meta = UNSET
-        else:
-            meta = AudioAnalysisObjectMeta.from_dict(_meta)
 
         sections = []
         _sections = d.pop("sections", UNSET)
@@ -161,21 +168,14 @@ class AudioAnalysisObject:
 
             tatums.append(tatums_item)
 
-        _track = d.pop("track", UNSET)
-        track: Union[Unset, AudioAnalysisObjectTrack]
-        if isinstance(_track, Unset):
-            track = UNSET
-        else:
-            track = AudioAnalysisObjectTrack.from_dict(_track)
-
         audio_analysis_object = cls(
+            meta=meta,
+            track=track,
             bars=bars,
             beats=beats,
-            meta=meta,
             sections=sections,
             segments=segments,
             tatums=tatums,
-            track=track,
         )
 
         audio_analysis_object.additional_properties = d

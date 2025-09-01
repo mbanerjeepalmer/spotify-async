@@ -20,38 +20,38 @@ T = TypeVar("T", bound="PlayHistoryObject")
 class PlayHistoryObject:
     """
     Attributes:
-        context (Union[Unset, ContextObject]):
-        played_at (Union[Unset, datetime.datetime]): The date and time the track was played.
         track (Union[Unset, TrackObject]):
+        played_at (Union[Unset, datetime.datetime]): The date and time the track was played.
+        context (Union[Unset, ContextObject]):
     """
 
-    context: Union[Unset, "ContextObject"] = UNSET
-    played_at: Union[Unset, datetime.datetime] = UNSET
     track: Union[Unset, "TrackObject"] = UNSET
+    played_at: Union[Unset, datetime.datetime] = UNSET
+    context: Union[Unset, "ContextObject"] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        context: Union[Unset, dict[str, Any]] = UNSET
-        if not isinstance(self.context, Unset):
-            context = self.context.to_dict()
+        track: Union[Unset, dict[str, Any]] = UNSET
+        if not isinstance(self.track, Unset):
+            track = self.track.to_dict()
 
         played_at: Union[Unset, str] = UNSET
         if not isinstance(self.played_at, Unset):
             played_at = self.played_at.isoformat()
 
-        track: Union[Unset, dict[str, Any]] = UNSET
-        if not isinstance(self.track, Unset):
-            track = self.track.to_dict()
+        context: Union[Unset, dict[str, Any]] = UNSET
+        if not isinstance(self.context, Unset):
+            context = self.context.to_dict()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
-        if context is not UNSET:
-            field_dict["context"] = context
-        if played_at is not UNSET:
-            field_dict["played_at"] = played_at
         if track is not UNSET:
             field_dict["track"] = track
+        if played_at is not UNSET:
+            field_dict["played_at"] = played_at
+        if context is not UNSET:
+            field_dict["context"] = context
 
         return field_dict
 
@@ -61,12 +61,12 @@ class PlayHistoryObject:
         from ..models.track_object import TrackObject
 
         d = dict(src_dict)
-        _context = d.pop("context", UNSET)
-        context: Union[Unset, ContextObject]
-        if isinstance(_context, Unset):
-            context = UNSET
+        _track = d.pop("track", UNSET)
+        track: Union[Unset, TrackObject]
+        if isinstance(_track, Unset):
+            track = UNSET
         else:
-            context = ContextObject.from_dict(_context)
+            track = TrackObject.from_dict(_track)
 
         _played_at = d.pop("played_at", UNSET)
         played_at: Union[Unset, datetime.datetime]
@@ -75,17 +75,17 @@ class PlayHistoryObject:
         else:
             played_at = isoparse(_played_at)
 
-        _track = d.pop("track", UNSET)
-        track: Union[Unset, TrackObject]
-        if isinstance(_track, Unset):
-            track = UNSET
+        _context = d.pop("context", UNSET)
+        context: Union[Unset, ContextObject]
+        if isinstance(_context, Unset):
+            context = UNSET
         else:
-            track = TrackObject.from_dict(_track)
+            context = ContextObject.from_dict(_context)
 
         play_history_object = cls(
-            context=context,
-            played_at=played_at,
             track=track,
+            played_at=played_at,
+            context=context,
         )
 
         play_history_object.additional_properties = d

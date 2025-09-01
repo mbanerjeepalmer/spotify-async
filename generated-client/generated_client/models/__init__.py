@@ -15,6 +15,8 @@ from .album_base_type import AlbumBaseType
 from .album_object import AlbumObject
 from .album_restriction_object import AlbumRestrictionObject
 from .album_restriction_object_reason import AlbumRestrictionObjectReason
+from .artist_discography_album_object import ArtistDiscographyAlbumObject
+from .artist_discography_album_object_album_group import ArtistDiscographyAlbumObjectAlbumGroup
 from .artist_object import ArtistObject
 from .artist_object_type import ArtistObjectType
 from .audio_analysis_object import AudioAnalysisObject
@@ -65,13 +67,11 @@ from .create_playlist_response_401 import CreatePlaylistResponse401
 from .create_playlist_response_403 import CreatePlaylistResponse403
 from .create_playlist_response_429 import CreatePlaylistResponse429
 from .currently_playing_context_object import CurrentlyPlayingContextObject
-from .currently_playing_object import CurrentlyPlayingObject
 from .cursor_object import CursorObject
 from .cursor_paging_object import CursorPagingObject
 from .cursor_paging_play_history_object import CursorPagingPlayHistoryObject
 from .cursor_paging_simplified_artist_object import CursorPagingSimplifiedArtistObject
 from .device_object import DeviceObject
-from .devices_object import DevicesObject
 from .disallows_object import DisallowsObject
 from .episode_base import EpisodeBase
 from .episode_base_release_date_precision import EpisodeBaseReleaseDatePrecision
@@ -156,6 +156,7 @@ from .get_available_markets_response_401 import GetAvailableMarketsResponse401
 from .get_available_markets_response_403 import GetAvailableMarketsResponse403
 from .get_available_markets_response_429 import GetAvailableMarketsResponse429
 from .get_categories_response_200 import GetCategoriesResponse200
+from .get_categories_response_200_categories import GetCategoriesResponse200Categories
 from .get_categories_response_401 import GetCategoriesResponse401
 from .get_categories_response_403 import GetCategoriesResponse403
 from .get_categories_response_429 import GetCategoriesResponse429
@@ -272,6 +273,7 @@ from .get_users_top_artists_and_tracks_type import GetUsersTopArtistsAndTracksTy
 from .image_object import ImageObject
 from .linked_track_object import LinkedTrackObject
 from .narrator_object import NarratorObject
+from .paging_artist_discography_album_object import PagingArtistDiscographyAlbumObject
 from .paging_artist_object import PagingArtistObject
 from .paging_featured_playlist_object import PagingFeaturedPlaylistObject
 from .paging_object import PagingObject
@@ -282,7 +284,6 @@ from .paging_saved_episode_object import PagingSavedEpisodeObject
 from .paging_saved_show_object import PagingSavedShowObject
 from .paging_saved_track_object import PagingSavedTrackObject
 from .paging_simplified_album_object import PagingSimplifiedAlbumObject
-from .paging_simplified_artist_object import PagingSimplifiedArtistObject
 from .paging_simplified_audiobook_object import PagingSimplifiedAudiobookObject
 from .paging_simplified_chapter_object import PagingSimplifiedChapterObject
 from .paging_simplified_episode_object import PagingSimplifiedEpisodeObject
@@ -293,8 +294,6 @@ from .pause_a_users_playback_response_401 import PauseAUsersPlaybackResponse401
 from .pause_a_users_playback_response_403 import PauseAUsersPlaybackResponse403
 from .pause_a_users_playback_response_429 import PauseAUsersPlaybackResponse429
 from .play_history_object import PlayHistoryObject
-from .player_error_object import PlayerErrorObject
-from .player_error_reasons import PlayerErrorReasons
 from .playlist_object import PlaylistObject
 from .playlist_owner_object import PlaylistOwnerObject
 from .playlist_track_object import PlaylistTrackObject
@@ -352,6 +351,7 @@ from .save_shows_user_response_401 import SaveShowsUserResponse401
 from .save_shows_user_response_403 import SaveShowsUserResponse403
 from .save_shows_user_response_429 import SaveShowsUserResponse429
 from .save_tracks_user_body import SaveTracksUserBody
+from .save_tracks_user_body_timestamped_ids_item import SaveTracksUserBodyTimestampedIdsItem
 from .save_tracks_user_response_401 import SaveTracksUserResponse401
 from .save_tracks_user_response_403 import SaveTracksUserResponse403
 from .save_tracks_user_response_429 import SaveTracksUserResponse429
@@ -381,7 +381,6 @@ from .show_base import ShowBase
 from .show_base_type import ShowBaseType
 from .show_object import ShowObject
 from .simplified_album_object import SimplifiedAlbumObject
-from .simplified_album_object_album_group import SimplifiedAlbumObjectAlbumGroup
 from .simplified_artist_object import SimplifiedArtistObject
 from .simplified_artist_object_type import SimplifiedArtistObjectType
 from .simplified_audiobook_object import SimplifiedAudiobookObject
@@ -413,7 +412,6 @@ from .transfer_a_users_playback_body import TransferAUsersPlaybackBody
 from .transfer_a_users_playback_response_401 import TransferAUsersPlaybackResponse401
 from .transfer_a_users_playback_response_403 import TransferAUsersPlaybackResponse403
 from .transfer_a_users_playback_response_429 import TransferAUsersPlaybackResponse429
-from .tuneable_track_object import TuneableTrackObject
 from .unfollow_artists_users_body import UnfollowArtistsUsersBody
 from .unfollow_artists_users_item_type import UnfollowArtistsUsersItemType
 from .unfollow_artists_users_response_401 import UnfollowArtistsUsersResponse401
@@ -442,6 +440,8 @@ __all__ = (
     "AlbumObject",
     "AlbumRestrictionObject",
     "AlbumRestrictionObjectReason",
+    "ArtistDiscographyAlbumObject",
+    "ArtistDiscographyAlbumObjectAlbumGroup",
     "ArtistObject",
     "ArtistObjectType",
     "AudioAnalysisObject",
@@ -492,13 +492,11 @@ __all__ = (
     "CreatePlaylistResponse403",
     "CreatePlaylistResponse429",
     "CurrentlyPlayingContextObject",
-    "CurrentlyPlayingObject",
     "CursorObject",
     "CursorPagingObject",
     "CursorPagingPlayHistoryObject",
     "CursorPagingSimplifiedArtistObject",
     "DeviceObject",
-    "DevicesObject",
     "DisallowsObject",
     "EpisodeBase",
     "EpisodeBaseReleaseDatePrecision",
@@ -583,6 +581,7 @@ __all__ = (
     "GetAvailableMarketsResponse403",
     "GetAvailableMarketsResponse429",
     "GetCategoriesResponse200",
+    "GetCategoriesResponse200Categories",
     "GetCategoriesResponse401",
     "GetCategoriesResponse403",
     "GetCategoriesResponse429",
@@ -693,6 +692,7 @@ __all__ = (
     "ImageObject",
     "LinkedTrackObject",
     "NarratorObject",
+    "PagingArtistDiscographyAlbumObject",
     "PagingArtistObject",
     "PagingFeaturedPlaylistObject",
     "PagingObject",
@@ -703,7 +703,6 @@ __all__ = (
     "PagingSavedShowObject",
     "PagingSavedTrackObject",
     "PagingSimplifiedAlbumObject",
-    "PagingSimplifiedArtistObject",
     "PagingSimplifiedAudiobookObject",
     "PagingSimplifiedChapterObject",
     "PagingSimplifiedEpisodeObject",
@@ -713,8 +712,6 @@ __all__ = (
     "PauseAUsersPlaybackResponse401",
     "PauseAUsersPlaybackResponse403",
     "PauseAUsersPlaybackResponse429",
-    "PlayerErrorObject",
-    "PlayerErrorReasons",
     "PlayHistoryObject",
     "PlaylistObject",
     "PlaylistOwnerObject",
@@ -777,6 +774,7 @@ __all__ = (
     "SaveShowsUserResponse403",
     "SaveShowsUserResponse429",
     "SaveTracksUserBody",
+    "SaveTracksUserBodyTimestampedIdsItem",
     "SaveTracksUserResponse401",
     "SaveTracksUserResponse403",
     "SaveTracksUserResponse429",
@@ -802,7 +800,6 @@ __all__ = (
     "ShowBaseType",
     "ShowObject",
     "SimplifiedAlbumObject",
-    "SimplifiedAlbumObjectAlbumGroup",
     "SimplifiedArtistObject",
     "SimplifiedArtistObjectType",
     "SimplifiedAudiobookObject",
@@ -834,7 +831,6 @@ __all__ = (
     "TransferAUsersPlaybackResponse401",
     "TransferAUsersPlaybackResponse403",
     "TransferAUsersPlaybackResponse429",
-    "TuneableTrackObject",
     "UnfollowArtistsUsersBody",
     "UnfollowArtistsUsersItemType",
     "UnfollowArtistsUsersResponse401",

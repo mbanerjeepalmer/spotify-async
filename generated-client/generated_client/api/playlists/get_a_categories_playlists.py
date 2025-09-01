@@ -15,13 +15,10 @@ from ...types import UNSET, Response, Unset
 def _get_kwargs(
     category_id: str,
     *,
-    country: Union[Unset, str] = UNSET,
     limit: Union[Unset, int] = 20,
     offset: Union[Unset, int] = 0,
 ) -> dict[str, Any]:
     params: dict[str, Any] = {}
-
-    params["country"] = country
 
     params["limit"] = limit
 
@@ -96,7 +93,6 @@ def sync_detailed(
     category_id: str,
     *,
     client: AuthenticatedClient,
-    country: Union[Unset, str] = UNSET,
     limit: Union[Unset, int] = 20,
     offset: Union[Unset, int] = 0,
 ) -> Response[
@@ -115,10 +111,6 @@ def sync_detailed(
         category_id (str): The [Spotify category ID](/documentation/web-api/concepts/spotify-uris-
             ids) for the category.
              Example: dinner.
-        country (Union[Unset, str]): A country: an [ISO 3166-1 alpha-2 country
-            code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter to ensure
-            that the category exists for a particular country.
-             Example: SE.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
              Default: 20. Example: 10.
@@ -136,7 +128,6 @@ def sync_detailed(
 
     kwargs = _get_kwargs(
         category_id=category_id,
-        country=country,
         limit=limit,
         offset=offset,
     )
@@ -152,7 +143,6 @@ def sync(
     category_id: str,
     *,
     client: AuthenticatedClient,
-    country: Union[Unset, str] = UNSET,
     limit: Union[Unset, int] = 20,
     offset: Union[Unset, int] = 0,
 ) -> Optional[
@@ -171,10 +161,6 @@ def sync(
         category_id (str): The [Spotify category ID](/documentation/web-api/concepts/spotify-uris-
             ids) for the category.
              Example: dinner.
-        country (Union[Unset, str]): A country: an [ISO 3166-1 alpha-2 country
-            code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter to ensure
-            that the category exists for a particular country.
-             Example: SE.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
              Default: 20. Example: 10.
@@ -193,7 +179,6 @@ def sync(
     return sync_detailed(
         category_id=category_id,
         client=client,
-        country=country,
         limit=limit,
         offset=offset,
     ).parsed
@@ -203,7 +188,6 @@ async def asyncio_detailed(
     category_id: str,
     *,
     client: AuthenticatedClient,
-    country: Union[Unset, str] = UNSET,
     limit: Union[Unset, int] = 20,
     offset: Union[Unset, int] = 0,
 ) -> Response[
@@ -222,10 +206,6 @@ async def asyncio_detailed(
         category_id (str): The [Spotify category ID](/documentation/web-api/concepts/spotify-uris-
             ids) for the category.
              Example: dinner.
-        country (Union[Unset, str]): A country: an [ISO 3166-1 alpha-2 country
-            code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter to ensure
-            that the category exists for a particular country.
-             Example: SE.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
              Default: 20. Example: 10.
@@ -243,7 +223,6 @@ async def asyncio_detailed(
 
     kwargs = _get_kwargs(
         category_id=category_id,
-        country=country,
         limit=limit,
         offset=offset,
     )
@@ -257,7 +236,6 @@ async def asyncio(
     category_id: str,
     *,
     client: AuthenticatedClient,
-    country: Union[Unset, str] = UNSET,
     limit: Union[Unset, int] = 20,
     offset: Union[Unset, int] = 0,
 ) -> Optional[
@@ -276,10 +254,6 @@ async def asyncio(
         category_id (str): The [Spotify category ID](/documentation/web-api/concepts/spotify-uris-
             ids) for the category.
              Example: dinner.
-        country (Union[Unset, str]): A country: an [ISO 3166-1 alpha-2 country
-            code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter to ensure
-            that the category exists for a particular country.
-             Example: SE.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
              Default: 20. Example: 10.
@@ -299,7 +273,6 @@ async def asyncio(
         await asyncio_detailed(
             category_id=category_id,
             client=client,
-            country=country,
             limit=limit,
             offset=offset,
         )

@@ -8,7 +8,7 @@ from ...client import AuthenticatedClient, Client
 from ...models.get_an_artists_albums_response_401 import GetAnArtistsAlbumsResponse401
 from ...models.get_an_artists_albums_response_403 import GetAnArtistsAlbumsResponse403
 from ...models.get_an_artists_albums_response_429 import GetAnArtistsAlbumsResponse429
-from ...models.paging_simplified_album_object import PagingSimplifiedAlbumObject
+from ...models.paging_artist_discography_album_object import PagingArtistDiscographyAlbumObject
 from ...types import UNSET, Response, Unset
 
 
@@ -48,11 +48,11 @@ def _parse_response(
         GetAnArtistsAlbumsResponse401,
         GetAnArtistsAlbumsResponse403,
         GetAnArtistsAlbumsResponse429,
-        PagingSimplifiedAlbumObject,
+        PagingArtistDiscographyAlbumObject,
     ]
 ]:
     if response.status_code == 200:
-        response_200 = PagingSimplifiedAlbumObject.from_dict(response.json())
+        response_200 = PagingArtistDiscographyAlbumObject.from_dict(response.json())
 
         return response_200
 
@@ -84,7 +84,7 @@ def _build_response(
         GetAnArtistsAlbumsResponse401,
         GetAnArtistsAlbumsResponse403,
         GetAnArtistsAlbumsResponse429,
-        PagingSimplifiedAlbumObject,
+        PagingArtistDiscographyAlbumObject,
     ]
 ]:
     return Response(
@@ -108,7 +108,7 @@ def sync_detailed(
         GetAnArtistsAlbumsResponse401,
         GetAnArtistsAlbumsResponse403,
         GetAnArtistsAlbumsResponse429,
-        PagingSimplifiedAlbumObject,
+        PagingArtistDiscographyAlbumObject,
     ]
 ]:
     """Get Artist's Albums
@@ -134,7 +134,7 @@ def sync_detailed(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
@@ -148,7 +148,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[GetAnArtistsAlbumsResponse401, GetAnArtistsAlbumsResponse403, GetAnArtistsAlbumsResponse429, PagingSimplifiedAlbumObject]]
+        Response[Union[GetAnArtistsAlbumsResponse401, GetAnArtistsAlbumsResponse403, GetAnArtistsAlbumsResponse429, PagingArtistDiscographyAlbumObject]]
     """
 
     kwargs = _get_kwargs(
@@ -179,7 +179,7 @@ def sync(
         GetAnArtistsAlbumsResponse401,
         GetAnArtistsAlbumsResponse403,
         GetAnArtistsAlbumsResponse429,
-        PagingSimplifiedAlbumObject,
+        PagingArtistDiscographyAlbumObject,
     ]
 ]:
     """Get Artist's Albums
@@ -205,7 +205,7 @@ def sync(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
@@ -219,7 +219,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[GetAnArtistsAlbumsResponse401, GetAnArtistsAlbumsResponse403, GetAnArtistsAlbumsResponse429, PagingSimplifiedAlbumObject]
+        Union[GetAnArtistsAlbumsResponse401, GetAnArtistsAlbumsResponse403, GetAnArtistsAlbumsResponse429, PagingArtistDiscographyAlbumObject]
     """
 
     return sync_detailed(
@@ -245,7 +245,7 @@ async def asyncio_detailed(
         GetAnArtistsAlbumsResponse401,
         GetAnArtistsAlbumsResponse403,
         GetAnArtistsAlbumsResponse429,
-        PagingSimplifiedAlbumObject,
+        PagingArtistDiscographyAlbumObject,
     ]
 ]:
     """Get Artist's Albums
@@ -271,7 +271,7 @@ async def asyncio_detailed(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
@@ -285,7 +285,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[GetAnArtistsAlbumsResponse401, GetAnArtistsAlbumsResponse403, GetAnArtistsAlbumsResponse429, PagingSimplifiedAlbumObject]]
+        Response[Union[GetAnArtistsAlbumsResponse401, GetAnArtistsAlbumsResponse403, GetAnArtistsAlbumsResponse429, PagingArtistDiscographyAlbumObject]]
     """
 
     kwargs = _get_kwargs(
@@ -314,7 +314,7 @@ async def asyncio(
         GetAnArtistsAlbumsResponse401,
         GetAnArtistsAlbumsResponse403,
         GetAnArtistsAlbumsResponse429,
-        PagingSimplifiedAlbumObject,
+        PagingArtistDiscographyAlbumObject,
     ]
 ]:
     """Get Artist's Albums
@@ -340,7 +340,7 @@ async def asyncio(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
@@ -354,7 +354,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[GetAnArtistsAlbumsResponse401, GetAnArtistsAlbumsResponse403, GetAnArtistsAlbumsResponse429, PagingSimplifiedAlbumObject]
+        Union[GetAnArtistsAlbumsResponse401, GetAnArtistsAlbumsResponse403, GetAnArtistsAlbumsResponse429, PagingArtistDiscographyAlbumObject]
     """
 
     return (

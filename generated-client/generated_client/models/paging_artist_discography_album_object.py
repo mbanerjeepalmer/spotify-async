@@ -7,14 +7,14 @@ from attrs import field as _attrs_field
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.simplified_artist_object import SimplifiedArtistObject
+    from ..models.artist_discography_album_object import ArtistDiscographyAlbumObject
 
 
-T = TypeVar("T", bound="PagingSimplifiedArtistObject")
+T = TypeVar("T", bound="PagingArtistDiscographyAlbumObject")
 
 
 @_attrs_define
-class PagingSimplifiedArtistObject:
+class PagingArtistDiscographyAlbumObject:
     """
     Attributes:
         href (str): A link to the Web API endpoint returning the full result of the request
@@ -29,7 +29,7 @@ class PagingSimplifiedArtistObject:
              Example: https://api.spotify.com/v1/me/shows?offset=1&limit=1.
         total (int): The total number of items available to return.
              Example: 4.
-        items (Union[Unset, list['SimplifiedArtistObject']]):
+        items (Union[Unset, list['ArtistDiscographyAlbumObject']]):
     """
 
     href: str
@@ -38,7 +38,7 @@ class PagingSimplifiedArtistObject:
     offset: int
     previous: Union[None, str]
     total: int
-    items: Union[Unset, list["SimplifiedArtistObject"]] = UNSET
+    items: Union[Unset, list["ArtistDiscographyAlbumObject"]] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -82,7 +82,7 @@ class PagingSimplifiedArtistObject:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.simplified_artist_object import SimplifiedArtistObject
+        from ..models.artist_discography_album_object import ArtistDiscographyAlbumObject
 
         d = dict(src_dict)
         href = d.pop("href")
@@ -110,11 +110,11 @@ class PagingSimplifiedArtistObject:
         items = []
         _items = d.pop("items", UNSET)
         for items_item_data in _items or []:
-            items_item = SimplifiedArtistObject.from_dict(items_item_data)
+            items_item = ArtistDiscographyAlbumObject.from_dict(items_item_data)
 
             items.append(items_item)
 
-        paging_simplified_artist_object = cls(
+        paging_artist_discography_album_object = cls(
             href=href,
             limit=limit,
             next_=next_,
@@ -124,8 +124,8 @@ class PagingSimplifiedArtistObject:
             items=items,
         )
 
-        paging_simplified_artist_object.additional_properties = d
-        return paging_simplified_artist_object
+        paging_artist_discography_album_object.additional_properties = d
+        return paging_artist_discography_album_object
 
     @property
     def additional_keys(self) -> list[str]:

@@ -13,7 +13,8 @@ T = TypeVar("T", bound="DeviceObject")
 class DeviceObject:
     r"""
     Attributes:
-        id (Union[None, Unset, str]): The device ID.
+        id (Union[None, Unset, str]): The device ID. This ID is unique and persistent to some extent. However, this is
+            not guaranteed and any cached `device_id` should periodically be cleared out and refetched as necessary.
         is_active (Union[Unset, bool]): If this device is the currently active device.
         is_private_session (Union[Unset, bool]): If this device is currently in a private session.
         is_restricted (Union[Unset, bool]): Whether controlling this device is restricted. At present if this is "true"
@@ -23,6 +24,7 @@ class DeviceObject:
             device model. Example: Kitchen speaker.
         type_ (Union[Unset, str]): Device type, such as "computer", "smartphone" or "speaker". Example: computer.
         volume_percent (Union[None, Unset, int]): The current volume in percent. Example: 59.
+        supports_volume (Union[Unset, bool]): If this device can be used to set the volume.
     """
 
     id: Union[None, Unset, str] = UNSET
@@ -32,6 +34,7 @@ class DeviceObject:
     name: Union[Unset, str] = UNSET
     type_: Union[Unset, str] = UNSET
     volume_percent: Union[None, Unset, int] = UNSET
+    supports_volume: Union[Unset, bool] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -57,6 +60,8 @@ class DeviceObject:
         else:
             volume_percent = self.volume_percent
 
+        supports_volume = self.supports_volume
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
@@ -74,6 +79,8 @@ class DeviceObject:
             field_dict["type"] = type_
         if volume_percent is not UNSET:
             field_dict["volume_percent"] = volume_percent
+        if supports_volume is not UNSET:
+            field_dict["supports_volume"] = supports_volume
 
         return field_dict
 
@@ -109,6 +116,8 @@ class DeviceObject:
 
         volume_percent = _parse_volume_percent(d.pop("volume_percent", UNSET))
 
+        supports_volume = d.pop("supports_volume", UNSET)
+
         device_object = cls(
             id=id,
             is_active=is_active,
@@ -117,6 +126,7 @@ class DeviceObject:
             name=name,
             type_=type_,
             volume_percent=volume_percent,
+            supports_volume=supports_volume,
         )
 
         device_object.additional_properties = d

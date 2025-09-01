@@ -9,26 +9,18 @@ from ...models.save_tracks_user_body import SaveTracksUserBody
 from ...models.save_tracks_user_response_401 import SaveTracksUserResponse401
 from ...models.save_tracks_user_response_403 import SaveTracksUserResponse403
 from ...models.save_tracks_user_response_429 import SaveTracksUserResponse429
-from ...types import UNSET, Response
+from ...types import Response
 
 
 def _get_kwargs(
     *,
     body: SaveTracksUserBody,
-    ids: str,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
-
-    params: dict[str, Any] = {}
-
-    params["ids"] = ids
-
-    params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     _kwargs: dict[str, Any] = {
         "method": "put",
         "url": "/me/tracks",
-        "params": params,
     }
 
     _kwargs["json"] = body.to_dict()
@@ -82,17 +74,12 @@ def sync_detailed(
     *,
     client: AuthenticatedClient,
     body: SaveTracksUserBody,
-    ids: str,
 ) -> Response[Union[Any, SaveTracksUserResponse401, SaveTracksUserResponse403, SaveTracksUserResponse429]]:
     """Save Tracks for Current User
 
      Save one or more tracks to the current user's 'Your Music' library.
 
     Args:
-        ids (str): A comma-separated list of the [Spotify IDs](/documentation/web-
-            api/concepts/spotify-uris-ids). For example:
-            `ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M`. Maximum: 50 IDs.
-             Example: 7ouMYWpwJ422jRcDASZB7P,4VqPOruhp5EdPBeR92t6lQ,2takcwOaAZWiXQijPHIx7B.
         body (SaveTracksUserBody):
 
     Raises:
@@ -105,7 +92,6 @@ def sync_detailed(
 
     kwargs = _get_kwargs(
         body=body,
-        ids=ids,
     )
 
     response = client.get_httpx_client().request(
@@ -119,17 +105,12 @@ def sync(
     *,
     client: AuthenticatedClient,
     body: SaveTracksUserBody,
-    ids: str,
 ) -> Optional[Union[Any, SaveTracksUserResponse401, SaveTracksUserResponse403, SaveTracksUserResponse429]]:
     """Save Tracks for Current User
 
      Save one or more tracks to the current user's 'Your Music' library.
 
     Args:
-        ids (str): A comma-separated list of the [Spotify IDs](/documentation/web-
-            api/concepts/spotify-uris-ids). For example:
-            `ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M`. Maximum: 50 IDs.
-             Example: 7ouMYWpwJ422jRcDASZB7P,4VqPOruhp5EdPBeR92t6lQ,2takcwOaAZWiXQijPHIx7B.
         body (SaveTracksUserBody):
 
     Raises:
@@ -143,7 +124,6 @@ def sync(
     return sync_detailed(
         client=client,
         body=body,
-        ids=ids,
     ).parsed
 
 
@@ -151,17 +131,12 @@ async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
     body: SaveTracksUserBody,
-    ids: str,
 ) -> Response[Union[Any, SaveTracksUserResponse401, SaveTracksUserResponse403, SaveTracksUserResponse429]]:
     """Save Tracks for Current User
 
      Save one or more tracks to the current user's 'Your Music' library.
 
     Args:
-        ids (str): A comma-separated list of the [Spotify IDs](/documentation/web-
-            api/concepts/spotify-uris-ids). For example:
-            `ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M`. Maximum: 50 IDs.
-             Example: 7ouMYWpwJ422jRcDASZB7P,4VqPOruhp5EdPBeR92t6lQ,2takcwOaAZWiXQijPHIx7B.
         body (SaveTracksUserBody):
 
     Raises:
@@ -174,7 +149,6 @@ async def asyncio_detailed(
 
     kwargs = _get_kwargs(
         body=body,
-        ids=ids,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -186,17 +160,12 @@ async def asyncio(
     *,
     client: AuthenticatedClient,
     body: SaveTracksUserBody,
-    ids: str,
 ) -> Optional[Union[Any, SaveTracksUserResponse401, SaveTracksUserResponse403, SaveTracksUserResponse429]]:
     """Save Tracks for Current User
 
      Save one or more tracks to the current user's 'Your Music' library.
 
     Args:
-        ids (str): A comma-separated list of the [Spotify IDs](/documentation/web-
-            api/concepts/spotify-uris-ids). For example:
-            `ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M`. Maximum: 50 IDs.
-             Example: 7ouMYWpwJ422jRcDASZB7P,4VqPOruhp5EdPBeR92t6lQ,2takcwOaAZWiXQijPHIx7B.
         body (SaveTracksUserBody):
 
     Raises:
@@ -211,6 +180,5 @@ async def asyncio(
         await asyncio_detailed(
             client=client,
             body=body,
-            ids=ids,
         )
     ).parsed

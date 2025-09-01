@@ -306,19 +306,23 @@ def sync_detailed(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
         seed_artists (str): A comma separated list of [Spotify IDs](/documentation/web-
             api/concepts/spotify-uris-ids) for seed artists.  Up to 5 seed values may be provided in
-            any combination of `seed_artists`, `seed_tracks` and `seed_genres`.
+            any combination of `seed_artists`, `seed_tracks` and `seed_genres`.<br/> _**Note**: only
+            required if `seed_genres` and `seed_tracks` are not set_.
              Example: 4NHQUGzhtTLFvgF5SZesLK.
         seed_genres (str): A comma separated list of any genres in the set of [available genre
-            seeds](#available-genre-seeds).  Up to 5 seed values may be provided in any combination of
-            `seed_artists`, `seed_tracks` and `seed_genres`.
+            seeds](/documentation/web-api/reference/get-recommendation-genres). Up to 5 seed values
+            may be provided in any combination of `seed_artists`, `seed_tracks` and
+            `seed_genres`.<br/> _**Note**: only required if `seed_artists` and `seed_tracks` are not
+            set_.
              Example: classical,country.
         seed_tracks (str): A comma separated list of [Spotify IDs](/documentation/web-
             api/concepts/spotify-uris-ids) for a seed track.  Up to 5 seed values may be provided in
-            any combination of `seed_artists`, `seed_tracks` and `seed_genres`.
+            any combination of `seed_artists`, `seed_tracks` and `seed_genres`.<br/> _**Note**: only
+            required if `seed_artists` and `seed_genres` are not set_.
              Example: 0c6xIDDpzE81m2q797ordA.
         min_acousticness (Union[Unset, float]): For each tunable track attribute, a hard floor on
             the selected track attribute’s value can be provided. See tunable track attributes below
@@ -632,19 +636,23 @@ def sync(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
         seed_artists (str): A comma separated list of [Spotify IDs](/documentation/web-
             api/concepts/spotify-uris-ids) for seed artists.  Up to 5 seed values may be provided in
-            any combination of `seed_artists`, `seed_tracks` and `seed_genres`.
+            any combination of `seed_artists`, `seed_tracks` and `seed_genres`.<br/> _**Note**: only
+            required if `seed_genres` and `seed_tracks` are not set_.
              Example: 4NHQUGzhtTLFvgF5SZesLK.
         seed_genres (str): A comma separated list of any genres in the set of [available genre
-            seeds](#available-genre-seeds).  Up to 5 seed values may be provided in any combination of
-            `seed_artists`, `seed_tracks` and `seed_genres`.
+            seeds](/documentation/web-api/reference/get-recommendation-genres). Up to 5 seed values
+            may be provided in any combination of `seed_artists`, `seed_tracks` and
+            `seed_genres`.<br/> _**Note**: only required if `seed_artists` and `seed_tracks` are not
+            set_.
              Example: classical,country.
         seed_tracks (str): A comma separated list of [Spotify IDs](/documentation/web-
             api/concepts/spotify-uris-ids) for a seed track.  Up to 5 seed values may be provided in
-            any combination of `seed_artists`, `seed_tracks` and `seed_genres`.
+            any combination of `seed_artists`, `seed_tracks` and `seed_genres`.<br/> _**Note**: only
+            required if `seed_artists` and `seed_genres` are not set_.
              Example: 0c6xIDDpzE81m2q797ordA.
         min_acousticness (Union[Unset, float]): For each tunable track attribute, a hard floor on
             the selected track attribute’s value can be provided. See tunable track attributes below
@@ -953,19 +961,23 @@ async def asyncio_detailed(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
         seed_artists (str): A comma separated list of [Spotify IDs](/documentation/web-
             api/concepts/spotify-uris-ids) for seed artists.  Up to 5 seed values may be provided in
-            any combination of `seed_artists`, `seed_tracks` and `seed_genres`.
+            any combination of `seed_artists`, `seed_tracks` and `seed_genres`.<br/> _**Note**: only
+            required if `seed_genres` and `seed_tracks` are not set_.
              Example: 4NHQUGzhtTLFvgF5SZesLK.
         seed_genres (str): A comma separated list of any genres in the set of [available genre
-            seeds](#available-genre-seeds).  Up to 5 seed values may be provided in any combination of
-            `seed_artists`, `seed_tracks` and `seed_genres`.
+            seeds](/documentation/web-api/reference/get-recommendation-genres). Up to 5 seed values
+            may be provided in any combination of `seed_artists`, `seed_tracks` and
+            `seed_genres`.<br/> _**Note**: only required if `seed_artists` and `seed_tracks` are not
+            set_.
              Example: classical,country.
         seed_tracks (str): A comma separated list of [Spotify IDs](/documentation/web-
             api/concepts/spotify-uris-ids) for a seed track.  Up to 5 seed values may be provided in
-            any combination of `seed_artists`, `seed_tracks` and `seed_genres`.
+            any combination of `seed_artists`, `seed_tracks` and `seed_genres`.<br/> _**Note**: only
+            required if `seed_artists` and `seed_genres` are not set_.
              Example: 0c6xIDDpzE81m2q797ordA.
         min_acousticness (Union[Unset, float]): For each tunable track attribute, a hard floor on
             the selected track attribute’s value can be provided. See tunable track attributes below
@@ -1277,19 +1289,23 @@ async def asyncio(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
         seed_artists (str): A comma separated list of [Spotify IDs](/documentation/web-
             api/concepts/spotify-uris-ids) for seed artists.  Up to 5 seed values may be provided in
-            any combination of `seed_artists`, `seed_tracks` and `seed_genres`.
+            any combination of `seed_artists`, `seed_tracks` and `seed_genres`.<br/> _**Note**: only
+            required if `seed_genres` and `seed_tracks` are not set_.
              Example: 4NHQUGzhtTLFvgF5SZesLK.
         seed_genres (str): A comma separated list of any genres in the set of [available genre
-            seeds](#available-genre-seeds).  Up to 5 seed values may be provided in any combination of
-            `seed_artists`, `seed_tracks` and `seed_genres`.
+            seeds](/documentation/web-api/reference/get-recommendation-genres). Up to 5 seed values
+            may be provided in any combination of `seed_artists`, `seed_tracks` and
+            `seed_genres`.<br/> _**Note**: only required if `seed_artists` and `seed_tracks` are not
+            set_.
              Example: classical,country.
         seed_tracks (str): A comma separated list of [Spotify IDs](/documentation/web-
             api/concepts/spotify-uris-ids) for a seed track.  Up to 5 seed values may be provided in
-            any combination of `seed_artists`, `seed_tracks` and `seed_genres`.
+            any combination of `seed_artists`, `seed_tracks` and `seed_genres`.<br/> _**Note**: only
+            required if `seed_artists` and `seed_genres` are not set_.
              Example: 0c6xIDDpzE81m2q797ordA.
         min_acousticness (Union[Unset, float]): For each tunable track attribute, a hard floor on
             the selected track attribute’s value can be provided. See tunable track attributes below

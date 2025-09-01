@@ -97,7 +97,8 @@ def sync_detailed(
 ]:
     """Skip To Previous
 
-     Skips to previous track in the user’s queue.
+     Skips to previous track in the user’s queue. This API only works for users who have Spotify Premium.
+    The order of execution is not guaranteed when you use this API with other Player API endpoints.
 
     Args:
         device_id (Union[Unset, str]): The id of the device this command is targeting. If
@@ -137,7 +138,8 @@ def sync(
 ]:
     """Skip To Previous
 
-     Skips to previous track in the user’s queue.
+     Skips to previous track in the user’s queue. This API only works for users who have Spotify Premium.
+    The order of execution is not guaranteed when you use this API with other Player API endpoints.
 
     Args:
         device_id (Union[Unset, str]): The id of the device this command is targeting. If
@@ -172,7 +174,8 @@ async def asyncio_detailed(
 ]:
     """Skip To Previous
 
-     Skips to previous track in the user’s queue.
+     Skips to previous track in the user’s queue. This API only works for users who have Spotify Premium.
+    The order of execution is not guaranteed when you use this API with other Player API endpoints.
 
     Args:
         device_id (Union[Unset, str]): The id of the device this command is targeting. If
@@ -210,7 +213,8 @@ async def asyncio(
 ]:
     """Skip To Previous
 
-     Skips to previous track in the user’s queue.
+     Skips to previous track in the user’s queue. This API only works for users who have Spotify Premium.
+    The order of execution is not guaranteed when you use this API with other Player API endpoints.
 
     Args:
         device_id (Union[Unset, str]): The id of the device this command is targeting. If

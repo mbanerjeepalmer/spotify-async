@@ -88,7 +88,8 @@ def sync_detailed(
 ]:
     """Get Available Devices
 
-     Get information about a user’s available devices.
+     Get information about a user’s available Spotify Connect devices. Some device models are not
+    supported and will not be listed in the API response.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -120,7 +121,8 @@ def sync(
 ]:
     """Get Available Devices
 
-     Get information about a user’s available devices.
+     Get information about a user’s available Spotify Connect devices. Some device models are not
+    supported and will not be listed in the API response.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -148,7 +150,8 @@ async def asyncio_detailed(
 ]:
     """Get Available Devices
 
-     Get information about a user’s available devices.
+     Get information about a user’s available Spotify Connect devices. Some device models are not
+    supported and will not be listed in the API response.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -178,7 +181,8 @@ async def asyncio(
 ]:
     """Get Available Devices
 
-     Get information about a user’s available devices.
+     Get information about a user’s available Spotify Connect devices. Some device models are not
+    supported and will not be listed in the API response.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

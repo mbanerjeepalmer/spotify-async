@@ -80,8 +80,8 @@ def sync_detailed(
 ) -> Response[Union[ChapterObject, GetAChapterResponse401, GetAChapterResponse403, GetAChapterResponse429]]:
     """Get a Chapter
 
-     Get Spotify catalog information for a single chapter.<br />
-    **Note: Chapters are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+     Get Spotify catalog information for a single audiobook chapter. Chapters are only available within
+    the US, UK, Canada, Ireland, New Zealand and Australia markets.
 
     Args:
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids)
@@ -97,7 +97,7 @@ def sync_detailed(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
 
     Raises:
@@ -128,8 +128,8 @@ def sync(
 ) -> Optional[Union[ChapterObject, GetAChapterResponse401, GetAChapterResponse403, GetAChapterResponse429]]:
     """Get a Chapter
 
-     Get Spotify catalog information for a single chapter.<br />
-    **Note: Chapters are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+     Get Spotify catalog information for a single audiobook chapter. Chapters are only available within
+    the US, UK, Canada, Ireland, New Zealand and Australia markets.
 
     Args:
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids)
@@ -145,7 +145,7 @@ def sync(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
 
     Raises:
@@ -171,8 +171,8 @@ async def asyncio_detailed(
 ) -> Response[Union[ChapterObject, GetAChapterResponse401, GetAChapterResponse403, GetAChapterResponse429]]:
     """Get a Chapter
 
-     Get Spotify catalog information for a single chapter.<br />
-    **Note: Chapters are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+     Get Spotify catalog information for a single audiobook chapter. Chapters are only available within
+    the US, UK, Canada, Ireland, New Zealand and Australia markets.
 
     Args:
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids)
@@ -188,7 +188,7 @@ async def asyncio_detailed(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
 
     Raises:
@@ -217,8 +217,8 @@ async def asyncio(
 ) -> Optional[Union[ChapterObject, GetAChapterResponse401, GetAChapterResponse403, GetAChapterResponse429]]:
     """Get a Chapter
 
-     Get Spotify catalog information for a single chapter.<br />
-    **Note: Chapters are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+     Get Spotify catalog information for a single audiobook chapter. Chapters are only available within
+    the US, UK, Canada, Ireland, New Zealand and Australia markets.
 
     Args:
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids)
@@ -234,7 +234,7 @@ async def asyncio(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
 
     Raises:

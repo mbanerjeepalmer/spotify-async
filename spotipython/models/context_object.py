@@ -17,38 +17,38 @@ T = TypeVar("T", bound="ContextObject")
 class ContextObject:
     """
     Attributes:
-        external_urls (Union[Unset, ExternalUrlObject]):
-        href (Union[Unset, str]): A link to the Web API endpoint providing full details of the track.
         type_ (Union[Unset, str]): The object type, e.g. "artist", "playlist", "album", "show".
+        href (Union[Unset, str]): A link to the Web API endpoint providing full details of the track.
+        external_urls (Union[Unset, ExternalUrlObject]):
         uri (Union[Unset, str]): The [Spotify URI](/documentation/web-api/concepts/spotify-uris-ids) for the context.
     """
 
-    external_urls: Union[Unset, "ExternalUrlObject"] = UNSET
-    href: Union[Unset, str] = UNSET
     type_: Union[Unset, str] = UNSET
+    href: Union[Unset, str] = UNSET
+    external_urls: Union[Unset, "ExternalUrlObject"] = UNSET
     uri: Union[Unset, str] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        external_urls: Union[Unset, dict[str, Any]] = UNSET
-        if not isinstance(self.external_urls, Unset):
-            external_urls = self.external_urls.to_dict()
+        type_ = self.type_
 
         href = self.href
 
-        type_ = self.type_
+        external_urls: Union[Unset, dict[str, Any]] = UNSET
+        if not isinstance(self.external_urls, Unset):
+            external_urls = self.external_urls.to_dict()
 
         uri = self.uri
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
-        if external_urls is not UNSET:
-            field_dict["external_urls"] = external_urls
-        if href is not UNSET:
-            field_dict["href"] = href
         if type_ is not UNSET:
             field_dict["type"] = type_
+        if href is not UNSET:
+            field_dict["href"] = href
+        if external_urls is not UNSET:
+            field_dict["external_urls"] = external_urls
         if uri is not UNSET:
             field_dict["uri"] = uri
 
@@ -59,6 +59,10 @@ class ContextObject:
         from ..models.external_url_object import ExternalUrlObject
 
         d = dict(src_dict)
+        type_ = d.pop("type", UNSET)
+
+        href = d.pop("href", UNSET)
+
         _external_urls = d.pop("external_urls", UNSET)
         external_urls: Union[Unset, ExternalUrlObject]
         if isinstance(_external_urls, Unset):
@@ -66,16 +70,12 @@ class ContextObject:
         else:
             external_urls = ExternalUrlObject.from_dict(_external_urls)
 
-        href = d.pop("href", UNSET)
-
-        type_ = d.pop("type", UNSET)
-
         uri = d.pop("uri", UNSET)
 
         context_object = cls(
-            external_urls=external_urls,
-            href=href,
             type_=type_,
+            href=href,
+            external_urls=external_urls,
             uri=uri,
         )
 

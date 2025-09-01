@@ -20,8 +20,8 @@ class DisallowsObject:
         skipping_next (Union[Unset, bool]): Skipping to the next context. Optional field.
         skipping_prev (Union[Unset, bool]): Skipping to the previous context. Optional field.
         toggling_repeat_context (Union[Unset, bool]): Toggling repeat context flag. Optional field.
-        toggling_repeat_track (Union[Unset, bool]): Toggling repeat track flag. Optional field.
         toggling_shuffle (Union[Unset, bool]): Toggling shuffle flag. Optional field.
+        toggling_repeat_track (Union[Unset, bool]): Toggling repeat track flag. Optional field.
         transferring_playback (Union[Unset, bool]): Transfering playback between devices. Optional field.
     """
 
@@ -32,8 +32,8 @@ class DisallowsObject:
     skipping_next: Union[Unset, bool] = UNSET
     skipping_prev: Union[Unset, bool] = UNSET
     toggling_repeat_context: Union[Unset, bool] = UNSET
-    toggling_repeat_track: Union[Unset, bool] = UNSET
     toggling_shuffle: Union[Unset, bool] = UNSET
+    toggling_repeat_track: Union[Unset, bool] = UNSET
     transferring_playback: Union[Unset, bool] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -52,9 +52,9 @@ class DisallowsObject:
 
         toggling_repeat_context = self.toggling_repeat_context
 
-        toggling_repeat_track = self.toggling_repeat_track
-
         toggling_shuffle = self.toggling_shuffle
+
+        toggling_repeat_track = self.toggling_repeat_track
 
         transferring_playback = self.transferring_playback
 
@@ -75,10 +75,10 @@ class DisallowsObject:
             field_dict["skipping_prev"] = skipping_prev
         if toggling_repeat_context is not UNSET:
             field_dict["toggling_repeat_context"] = toggling_repeat_context
-        if toggling_repeat_track is not UNSET:
-            field_dict["toggling_repeat_track"] = toggling_repeat_track
         if toggling_shuffle is not UNSET:
             field_dict["toggling_shuffle"] = toggling_shuffle
+        if toggling_repeat_track is not UNSET:
+            field_dict["toggling_repeat_track"] = toggling_repeat_track
         if transferring_playback is not UNSET:
             field_dict["transferring_playback"] = transferring_playback
 
@@ -101,9 +101,9 @@ class DisallowsObject:
 
         toggling_repeat_context = d.pop("toggling_repeat_context", UNSET)
 
-        toggling_repeat_track = d.pop("toggling_repeat_track", UNSET)
-
         toggling_shuffle = d.pop("toggling_shuffle", UNSET)
+
+        toggling_repeat_track = d.pop("toggling_repeat_track", UNSET)
 
         transferring_playback = d.pop("transferring_playback", UNSET)
 
@@ -115,8 +115,8 @@ class DisallowsObject:
             skipping_next=skipping_next,
             skipping_prev=skipping_prev,
             toggling_repeat_context=toggling_repeat_context,
-            toggling_repeat_track=toggling_repeat_track,
             toggling_shuffle=toggling_shuffle,
+            toggling_repeat_track=toggling_repeat_track,
             transferring_playback=transferring_playback,
         )
 

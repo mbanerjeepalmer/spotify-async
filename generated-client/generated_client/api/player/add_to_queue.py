@@ -80,7 +80,9 @@ def sync_detailed(
 ) -> Response[Union[AddToQueueResponse401, AddToQueueResponse403, AddToQueueResponse429, Any]]:
     """Add Item to Playback Queue
 
-     Add an item to the end of the user's current playback queue.
+     Add an item to be played next in the user's current playback queue. This API only works for users
+    who have Spotify Premium. The order of execution is not guaranteed when you use this API with other
+    Player API endpoints.
 
     Args:
         uri (str): The uri of the item to add to the queue. Must be a track or an episode uri.
@@ -117,7 +119,9 @@ def sync(
 ) -> Optional[Union[AddToQueueResponse401, AddToQueueResponse403, AddToQueueResponse429, Any]]:
     """Add Item to Playback Queue
 
-     Add an item to the end of the user's current playback queue.
+     Add an item to be played next in the user's current playback queue. This API only works for users
+    who have Spotify Premium. The order of execution is not guaranteed when you use this API with other
+    Player API endpoints.
 
     Args:
         uri (str): The uri of the item to add to the queue. Must be a track or an episode uri.
@@ -149,7 +153,9 @@ async def asyncio_detailed(
 ) -> Response[Union[AddToQueueResponse401, AddToQueueResponse403, AddToQueueResponse429, Any]]:
     """Add Item to Playback Queue
 
-     Add an item to the end of the user's current playback queue.
+     Add an item to be played next in the user's current playback queue. This API only works for users
+    who have Spotify Premium. The order of execution is not guaranteed when you use this API with other
+    Player API endpoints.
 
     Args:
         uri (str): The uri of the item to add to the queue. Must be a track or an episode uri.
@@ -184,7 +190,9 @@ async def asyncio(
 ) -> Optional[Union[AddToQueueResponse401, AddToQueueResponse403, AddToQueueResponse429, Any]]:
     """Add Item to Playback Queue
 
-     Add an item to the end of the user's current playback queue.
+     Add an item to be played next in the user's current playback queue. This API only works for users
+    who have Spotify Premium. The order of execution is not guaranteed when you use this API with other
+    Player API endpoints.
 
     Args:
         uri (str): The uri of the item to add to the queue. Must be a track or an episode uri.

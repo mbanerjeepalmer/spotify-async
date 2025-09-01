@@ -14,13 +14,10 @@ from ...types import UNSET, Response, Unset
 
 def _get_kwargs(
     *,
-    country: Union[Unset, str] = UNSET,
     limit: Union[Unset, int] = 20,
     offset: Union[Unset, int] = 0,
 ) -> dict[str, Any]:
     params: dict[str, Any] = {}
-
-    params["country"] = country
 
     params["limit"] = limit
 
@@ -84,7 +81,6 @@ def _build_response(
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-    country: Union[Unset, str] = UNSET,
     limit: Union[Unset, int] = 20,
     offset: Union[Unset, int] = 0,
 ) -> Response[
@@ -96,11 +92,6 @@ def sync_detailed(
     “Browse” tab).
 
     Args:
-        country (Union[Unset, str]): A country: an [ISO 3166-1 alpha-2 country
-            code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter if you want
-            the list of returned items to be relevant to a particular country. If omitted, the
-            returned items will be relevant to all countries.
-             Example: SE.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
              Default: 20. Example: 10.
@@ -117,7 +108,6 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        country=country,
         limit=limit,
         offset=offset,
     )
@@ -132,7 +122,6 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-    country: Union[Unset, str] = UNSET,
     limit: Union[Unset, int] = 20,
     offset: Union[Unset, int] = 0,
 ) -> Optional[
@@ -144,11 +133,6 @@ def sync(
     “Browse” tab).
 
     Args:
-        country (Union[Unset, str]): A country: an [ISO 3166-1 alpha-2 country
-            code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter if you want
-            the list of returned items to be relevant to a particular country. If omitted, the
-            returned items will be relevant to all countries.
-             Example: SE.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
              Default: 20. Example: 10.
@@ -166,7 +150,6 @@ def sync(
 
     return sync_detailed(
         client=client,
-        country=country,
         limit=limit,
         offset=offset,
     ).parsed
@@ -175,7 +158,6 @@ def sync(
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-    country: Union[Unset, str] = UNSET,
     limit: Union[Unset, int] = 20,
     offset: Union[Unset, int] = 0,
 ) -> Response[
@@ -187,11 +169,6 @@ async def asyncio_detailed(
     “Browse” tab).
 
     Args:
-        country (Union[Unset, str]): A country: an [ISO 3166-1 alpha-2 country
-            code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter if you want
-            the list of returned items to be relevant to a particular country. If omitted, the
-            returned items will be relevant to all countries.
-             Example: SE.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
              Default: 20. Example: 10.
@@ -208,7 +185,6 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        country=country,
         limit=limit,
         offset=offset,
     )
@@ -221,7 +197,6 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-    country: Union[Unset, str] = UNSET,
     limit: Union[Unset, int] = 20,
     offset: Union[Unset, int] = 0,
 ) -> Optional[
@@ -233,11 +208,6 @@ async def asyncio(
     “Browse” tab).
 
     Args:
-        country (Union[Unset, str]): A country: an [ISO 3166-1 alpha-2 country
-            code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter if you want
-            the list of returned items to be relevant to a particular country. If omitted, the
-            returned items will be relevant to all countries.
-             Example: SE.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
              Default: 20. Example: 10.
@@ -256,7 +226,6 @@ async def asyncio(
     return (
         await asyncio_detailed(
             client=client,
-            country=country,
             limit=limit,
             offset=offset,
         )

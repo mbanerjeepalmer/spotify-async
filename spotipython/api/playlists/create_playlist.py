@@ -83,13 +83,14 @@ def sync_detailed(
 
      Create a playlist for a Spotify user. (The playlist will be empty until
     you [add tracks](/documentation/web-api/reference/add-tracks-to-playlist).)
+    Each user is generally limited to a maximum of 11000 playlists.
 
     Args:
         user_id (str): The user's [Spotify user ID](/documentation/web-api/concepts/spotify-uris-
             ids).
              Example: smedjan.
-        body (CreatePlaylistBody):  Example: {'description': 'New playlist description', 'name':
-            'New Playlist', 'public': False}.
+        body (CreatePlaylistBody):  Example: {'name': 'New Playlist', 'description': 'New playlist
+            description', 'public': False}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -121,13 +122,14 @@ def sync(
 
      Create a playlist for a Spotify user. (The playlist will be empty until
     you [add tracks](/documentation/web-api/reference/add-tracks-to-playlist).)
+    Each user is generally limited to a maximum of 11000 playlists.
 
     Args:
         user_id (str): The user's [Spotify user ID](/documentation/web-api/concepts/spotify-uris-
             ids).
              Example: smedjan.
-        body (CreatePlaylistBody):  Example: {'description': 'New playlist description', 'name':
-            'New Playlist', 'public': False}.
+        body (CreatePlaylistBody):  Example: {'name': 'New Playlist', 'description': 'New playlist
+            description', 'public': False}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -154,13 +156,14 @@ async def asyncio_detailed(
 
      Create a playlist for a Spotify user. (The playlist will be empty until
     you [add tracks](/documentation/web-api/reference/add-tracks-to-playlist).)
+    Each user is generally limited to a maximum of 11000 playlists.
 
     Args:
         user_id (str): The user's [Spotify user ID](/documentation/web-api/concepts/spotify-uris-
             ids).
              Example: smedjan.
-        body (CreatePlaylistBody):  Example: {'description': 'New playlist description', 'name':
-            'New Playlist', 'public': False}.
+        body (CreatePlaylistBody):  Example: {'name': 'New Playlist', 'description': 'New playlist
+            description', 'public': False}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -190,13 +193,14 @@ async def asyncio(
 
      Create a playlist for a Spotify user. (The playlist will be empty until
     you [add tracks](/documentation/web-api/reference/add-tracks-to-playlist).)
+    Each user is generally limited to a maximum of 11000 playlists.
 
     Args:
         user_id (str): The user's [Spotify user ID](/documentation/web-api/concepts/spotify-uris-
             ids).
              Example: smedjan.
-        body (CreatePlaylistBody):  Example: {'description': 'New playlist description', 'name':
-            'New Playlist', 'public': False}.
+        body (CreatePlaylistBody):  Example: {'name': 'New Playlist', 'description': 'New playlist
+            description', 'public': False}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

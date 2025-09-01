@@ -92,8 +92,7 @@ def sync_detailed(
     """Get Artist's Related Artists
 
      Get Spotify catalog information about artists similar to a given artist. Similarity is based on
-    analysis of the Spotify community's [listening
-    history](http://news.spotify.com/se/2010/02/03/related-artists/).
+    analysis of the Spotify community's listening history.
 
     Args:
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of the
@@ -134,8 +133,7 @@ def sync(
     """Get Artist's Related Artists
 
      Get Spotify catalog information about artists similar to a given artist. Similarity is based on
-    analysis of the Spotify community's [listening
-    history](http://news.spotify.com/se/2010/02/03/related-artists/).
+    analysis of the Spotify community's listening history.
 
     Args:
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of the
@@ -171,8 +169,7 @@ async def asyncio_detailed(
     """Get Artist's Related Artists
 
      Get Spotify catalog information about artists similar to a given artist. Similarity is based on
-    analysis of the Spotify community's [listening
-    history](http://news.spotify.com/se/2010/02/03/related-artists/).
+    analysis of the Spotify community's listening history.
 
     Args:
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of the
@@ -211,8 +208,7 @@ async def asyncio(
     """Get Artist's Related Artists
 
      Get Spotify catalog information about artists similar to a given artist. Similarity is based on
-    analysis of the Spotify community's [listening
-    history](http://news.spotify.com/se/2010/02/03/related-artists/).
+    analysis of the Spotify community's listening history.
 
     Args:
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of the

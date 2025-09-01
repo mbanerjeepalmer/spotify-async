@@ -83,7 +83,9 @@ def sync_detailed(
 ]:
     """Transfer Playback
 
-     Transfer playback to a new device and determine if it should start playing.
+     Transfer playback to a new device and optionally begin playback. This API only works for users who
+    have Spotify Premium. The order of execution is not guaranteed when you use this API with other
+    Player API endpoints.
 
     Args:
         body (TransferAUsersPlaybackBody):  Example: {'device_ids': ['74ASZWbe4lXaubB36ztrGX']}.
@@ -116,7 +118,9 @@ def sync(
 ]:
     """Transfer Playback
 
-     Transfer playback to a new device and determine if it should start playing.
+     Transfer playback to a new device and optionally begin playback. This API only works for users who
+    have Spotify Premium. The order of execution is not guaranteed when you use this API with other
+    Player API endpoints.
 
     Args:
         body (TransferAUsersPlaybackBody):  Example: {'device_ids': ['74ASZWbe4lXaubB36ztrGX']}.
@@ -144,7 +148,9 @@ async def asyncio_detailed(
 ]:
     """Transfer Playback
 
-     Transfer playback to a new device and determine if it should start playing.
+     Transfer playback to a new device and optionally begin playback. This API only works for users who
+    have Spotify Premium. The order of execution is not guaranteed when you use this API with other
+    Player API endpoints.
 
     Args:
         body (TransferAUsersPlaybackBody):  Example: {'device_ids': ['74ASZWbe4lXaubB36ztrGX']}.
@@ -175,7 +181,9 @@ async def asyncio(
 ]:
     """Transfer Playback
 
-     Transfer playback to a new device and determine if it should start playing.
+     Transfer playback to a new device and optionally begin playback. This API only works for users who
+    have Spotify Premium. The order of execution is not guaranteed when you use this API with other
+    Player API endpoints.
 
     Args:
         body (TransferAUsersPlaybackBody):  Example: {'device_ids': ['74ASZWbe4lXaubB36ztrGX']}.

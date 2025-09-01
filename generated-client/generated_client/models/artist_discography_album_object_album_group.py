@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class SimplifiedAlbumObjectAlbumGroup(str, Enum):
+class ArtistDiscographyAlbumObjectAlbumGroup(str, Enum):
     ALBUM = "album"
     APPEARS_ON = "appears_on"
     COMPILATION = "compilation"

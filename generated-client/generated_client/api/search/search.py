@@ -111,8 +111,8 @@ def sync_detailed(
 
      Get Spotify catalog information about albums, artists, playlists, tracks, shows, episodes or
     audiobooks
-    that match a keyword string.<br />
-    **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+    that match a keyword string. Audiobooks are only available within the US, UK, Canada, Ireland, New
+    Zealand and Australia markets.
 
     Args:
         q (str): Your search query.
@@ -144,7 +144,7 @@ def sync_detailed(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
         limit (Union[Unset, int]): The maximum number of results to return in each item type.
              Default: 20. Example: 10.
@@ -194,8 +194,8 @@ def sync(
 
      Get Spotify catalog information about albums, artists, playlists, tracks, shows, episodes or
     audiobooks
-    that match a keyword string.<br />
-    **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+    that match a keyword string. Audiobooks are only available within the US, UK, Canada, Ireland, New
+    Zealand and Australia markets.
 
     Args:
         q (str): Your search query.
@@ -227,7 +227,7 @@ def sync(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
         limit (Union[Unset, int]): The maximum number of results to return in each item type.
              Default: 20. Example: 10.
@@ -272,8 +272,8 @@ async def asyncio_detailed(
 
      Get Spotify catalog information about albums, artists, playlists, tracks, shows, episodes or
     audiobooks
-    that match a keyword string.<br />
-    **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+    that match a keyword string. Audiobooks are only available within the US, UK, Canada, Ireland, New
+    Zealand and Australia markets.
 
     Args:
         q (str): Your search query.
@@ -305,7 +305,7 @@ async def asyncio_detailed(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
         limit (Union[Unset, int]): The maximum number of results to return in each item type.
              Default: 20. Example: 10.
@@ -353,8 +353,8 @@ async def asyncio(
 
      Get Spotify catalog information about albums, artists, playlists, tracks, shows, episodes or
     audiobooks
-    that match a keyword string.<br />
-    **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+    that match a keyword string. Audiobooks are only available within the US, UK, Canada, Ireland, New
+    Zealand and Australia markets.
 
     Args:
         q (str): Your search query.
@@ -386,7 +386,7 @@ async def asyncio(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
         limit (Union[Unset, int]): The maximum number of results to return in each item type.
              Default: 20. Example: 10.

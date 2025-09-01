@@ -13,32 +13,32 @@ T = TypeVar("T", bound="ExternalIdObject")
 class ExternalIdObject:
     """
     Attributes:
-        ean (Union[Unset, str]): [International Article
-            Number](http://en.wikipedia.org/wiki/International_Article_Number_%28EAN%29)
         isrc (Union[Unset, str]): [International Standard Recording
             Code](http://en.wikipedia.org/wiki/International_Standard_Recording_Code)
+        ean (Union[Unset, str]): [International Article
+            Number](http://en.wikipedia.org/wiki/International_Article_Number_%28EAN%29)
         upc (Union[Unset, str]): [Universal Product Code](http://en.wikipedia.org/wiki/Universal_Product_Code)
     """
 
-    ean: Union[Unset, str] = UNSET
     isrc: Union[Unset, str] = UNSET
+    ean: Union[Unset, str] = UNSET
     upc: Union[Unset, str] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        ean = self.ean
-
         isrc = self.isrc
+
+        ean = self.ean
 
         upc = self.upc
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
-        if ean is not UNSET:
-            field_dict["ean"] = ean
         if isrc is not UNSET:
             field_dict["isrc"] = isrc
+        if ean is not UNSET:
+            field_dict["ean"] = ean
         if upc is not UNSET:
             field_dict["upc"] = upc
 
@@ -47,15 +47,15 @@ class ExternalIdObject:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        ean = d.pop("ean", UNSET)
-
         isrc = d.pop("isrc", UNSET)
+
+        ean = d.pop("ean", UNSET)
 
         upc = d.pop("upc", UNSET)
 
         external_id_object = cls(
-            ean=ean,
             isrc=isrc,
+            ean=ean,
             upc=upc,
         )
 

@@ -103,8 +103,8 @@ def sync_detailed(
 ]:
     """Get Several Audiobooks
 
-     Get Spotify catalog information for several audiobooks identified by their Spotify IDs.<br />
-    **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+     Get Spotify catalog information for several audiobooks identified by their Spotify IDs. Audiobooks
+    are only available within the US, UK, Canada, Ireland, New Zealand and Australia markets.
 
     Args:
         ids (str): A comma-separated list of the [Spotify IDs](/documentation/web-
@@ -121,7 +121,7 @@ def sync_detailed(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
 
     Raises:
@@ -159,8 +159,8 @@ def sync(
 ]:
     """Get Several Audiobooks
 
-     Get Spotify catalog information for several audiobooks identified by their Spotify IDs.<br />
-    **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+     Get Spotify catalog information for several audiobooks identified by their Spotify IDs. Audiobooks
+    are only available within the US, UK, Canada, Ireland, New Zealand and Australia markets.
 
     Args:
         ids (str): A comma-separated list of the [Spotify IDs](/documentation/web-
@@ -177,7 +177,7 @@ def sync(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
 
     Raises:
@@ -210,8 +210,8 @@ async def asyncio_detailed(
 ]:
     """Get Several Audiobooks
 
-     Get Spotify catalog information for several audiobooks identified by their Spotify IDs.<br />
-    **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+     Get Spotify catalog information for several audiobooks identified by their Spotify IDs. Audiobooks
+    are only available within the US, UK, Canada, Ireland, New Zealand and Australia markets.
 
     Args:
         ids (str): A comma-separated list of the [Spotify IDs](/documentation/web-
@@ -228,7 +228,7 @@ async def asyncio_detailed(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
 
     Raises:
@@ -264,8 +264,8 @@ async def asyncio(
 ]:
     """Get Several Audiobooks
 
-     Get Spotify catalog information for several audiobooks identified by their Spotify IDs.<br />
-    **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+     Get Spotify catalog information for several audiobooks identified by their Spotify IDs. Audiobooks
+    are only available within the US, UK, Canada, Ireland, New Zealand and Australia markets.
 
     Args:
         ids (str): A comma-separated list of the [Spotify IDs](/documentation/web-
@@ -282,7 +282,7 @@ async def asyncio(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
 
     Raises:

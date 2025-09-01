@@ -14,14 +14,11 @@ from ...types import UNSET, Response, Unset
 
 def _get_kwargs(
     *,
-    country: Union[Unset, str] = UNSET,
     locale: Union[Unset, str] = UNSET,
     limit: Union[Unset, int] = 20,
     offset: Union[Unset, int] = 0,
 ) -> dict[str, Any]:
     params: dict[str, Any] = {}
-
-    params["country"] = country
 
     params["locale"] = locale
 
@@ -87,7 +84,6 @@ def _build_response(
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-    country: Union[Unset, str] = UNSET,
     locale: Union[Unset, str] = UNSET,
     limit: Union[Unset, int] = 20,
     offset: Union[Unset, int] = 0,
@@ -100,21 +96,13 @@ def sync_detailed(
     “Browse” tab).
 
     Args:
-        country (Union[Unset, str]): A country: an [ISO 3166-1 alpha-2 country
-            code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter if you want
-            to narrow the list of returned categories to those relevant to a particular country. If
-            omitted, the returned items will be globally relevant.
-             Example: SE.
         locale (Union[Unset, str]): The desired language, consisting of an [ISO
             639-1](http://en.wikipedia.org/wiki/ISO_639-1) language code and an [ISO 3166-1 alpha-2
             country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), joined by an underscore.
-            For example: `es_MX`, meaning "Spanish (Mexico)". Provide this parameter if you want the
-            category metadata returned in a particular language. <br/>
-            _**Note**: if `locale` is not supplied, or if the specified language is not available, all
-            strings will be returned in the Spotify default language (American English). The `locale`
-            parameter, combined with the `country` parameter, may give odd results if not carefully
-            matched. For example `country=SE&locale=de_DE` will return a list of categories relevant
-            to Sweden but as German language strings._
+            For example: `es_MX`, meaning &quot;Spanish (Mexico)&quot;. Provide this parameter if you
+            want the category strings returned in a particular language.<br/> _**Note**: if `locale`
+            is not supplied, or if the specified language is not available, the category strings
+            returned will be in the Spotify default language (American English)._
              Example: sv_SE.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
@@ -132,7 +120,6 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        country=country,
         locale=locale,
         limit=limit,
         offset=offset,
@@ -148,7 +135,6 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-    country: Union[Unset, str] = UNSET,
     locale: Union[Unset, str] = UNSET,
     limit: Union[Unset, int] = 20,
     offset: Union[Unset, int] = 0,
@@ -161,21 +147,13 @@ def sync(
     “Browse” tab).
 
     Args:
-        country (Union[Unset, str]): A country: an [ISO 3166-1 alpha-2 country
-            code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter if you want
-            to narrow the list of returned categories to those relevant to a particular country. If
-            omitted, the returned items will be globally relevant.
-             Example: SE.
         locale (Union[Unset, str]): The desired language, consisting of an [ISO
             639-1](http://en.wikipedia.org/wiki/ISO_639-1) language code and an [ISO 3166-1 alpha-2
             country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), joined by an underscore.
-            For example: `es_MX`, meaning "Spanish (Mexico)". Provide this parameter if you want the
-            category metadata returned in a particular language. <br/>
-            _**Note**: if `locale` is not supplied, or if the specified language is not available, all
-            strings will be returned in the Spotify default language (American English). The `locale`
-            parameter, combined with the `country` parameter, may give odd results if not carefully
-            matched. For example `country=SE&locale=de_DE` will return a list of categories relevant
-            to Sweden but as German language strings._
+            For example: `es_MX`, meaning &quot;Spanish (Mexico)&quot;. Provide this parameter if you
+            want the category strings returned in a particular language.<br/> _**Note**: if `locale`
+            is not supplied, or if the specified language is not available, the category strings
+            returned will be in the Spotify default language (American English)._
              Example: sv_SE.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
@@ -194,7 +172,6 @@ def sync(
 
     return sync_detailed(
         client=client,
-        country=country,
         locale=locale,
         limit=limit,
         offset=offset,
@@ -204,7 +181,6 @@ def sync(
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-    country: Union[Unset, str] = UNSET,
     locale: Union[Unset, str] = UNSET,
     limit: Union[Unset, int] = 20,
     offset: Union[Unset, int] = 0,
@@ -217,21 +193,13 @@ async def asyncio_detailed(
     “Browse” tab).
 
     Args:
-        country (Union[Unset, str]): A country: an [ISO 3166-1 alpha-2 country
-            code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter if you want
-            to narrow the list of returned categories to those relevant to a particular country. If
-            omitted, the returned items will be globally relevant.
-             Example: SE.
         locale (Union[Unset, str]): The desired language, consisting of an [ISO
             639-1](http://en.wikipedia.org/wiki/ISO_639-1) language code and an [ISO 3166-1 alpha-2
             country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), joined by an underscore.
-            For example: `es_MX`, meaning "Spanish (Mexico)". Provide this parameter if you want the
-            category metadata returned in a particular language. <br/>
-            _**Note**: if `locale` is not supplied, or if the specified language is not available, all
-            strings will be returned in the Spotify default language (American English). The `locale`
-            parameter, combined with the `country` parameter, may give odd results if not carefully
-            matched. For example `country=SE&locale=de_DE` will return a list of categories relevant
-            to Sweden but as German language strings._
+            For example: `es_MX`, meaning &quot;Spanish (Mexico)&quot;. Provide this parameter if you
+            want the category strings returned in a particular language.<br/> _**Note**: if `locale`
+            is not supplied, or if the specified language is not available, the category strings
+            returned will be in the Spotify default language (American English)._
              Example: sv_SE.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
@@ -249,7 +217,6 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        country=country,
         locale=locale,
         limit=limit,
         offset=offset,
@@ -263,7 +230,6 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-    country: Union[Unset, str] = UNSET,
     locale: Union[Unset, str] = UNSET,
     limit: Union[Unset, int] = 20,
     offset: Union[Unset, int] = 0,
@@ -276,21 +242,13 @@ async def asyncio(
     “Browse” tab).
 
     Args:
-        country (Union[Unset, str]): A country: an [ISO 3166-1 alpha-2 country
-            code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter if you want
-            to narrow the list of returned categories to those relevant to a particular country. If
-            omitted, the returned items will be globally relevant.
-             Example: SE.
         locale (Union[Unset, str]): The desired language, consisting of an [ISO
             639-1](http://en.wikipedia.org/wiki/ISO_639-1) language code and an [ISO 3166-1 alpha-2
             country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), joined by an underscore.
-            For example: `es_MX`, meaning "Spanish (Mexico)". Provide this parameter if you want the
-            category metadata returned in a particular language. <br/>
-            _**Note**: if `locale` is not supplied, or if the specified language is not available, all
-            strings will be returned in the Spotify default language (American English). The `locale`
-            parameter, combined with the `country` parameter, may give odd results if not carefully
-            matched. For example `country=SE&locale=de_DE` will return a list of categories relevant
-            to Sweden but as German language strings._
+            For example: `es_MX`, meaning &quot;Spanish (Mexico)&quot;. Provide this parameter if you
+            want the category strings returned in a particular language.<br/> _**Note**: if `locale`
+            is not supplied, or if the specified language is not available, the category strings
+            returned will be in the Spotify default language (American English)._
              Example: sv_SE.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
@@ -310,7 +268,6 @@ async def asyncio(
     return (
         await asyncio_detailed(
             client=client,
-            country=country,
             locale=locale,
             limit=limit,
             offset=offset,

@@ -18,32 +18,32 @@ T = TypeVar("T", bound="CursorPagingPlayHistoryObject")
 class CursorPagingPlayHistoryObject:
     """
     Attributes:
-        cursors (Union[Unset, CursorObject]):
         href (Union[Unset, str]): A link to the Web API endpoint returning the full result of the request.
         limit (Union[Unset, int]): The maximum number of items in the response (as set in the query or by default).
         next_ (Union[Unset, str]): URL to the next page of items. ( `null` if none)
+        cursors (Union[Unset, CursorObject]):
         total (Union[Unset, int]): The total number of items available to return.
         items (Union[Unset, list['PlayHistoryObject']]):
     """
 
-    cursors: Union[Unset, "CursorObject"] = UNSET
     href: Union[Unset, str] = UNSET
     limit: Union[Unset, int] = UNSET
     next_: Union[Unset, str] = UNSET
+    cursors: Union[Unset, "CursorObject"] = UNSET
     total: Union[Unset, int] = UNSET
     items: Union[Unset, list["PlayHistoryObject"]] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        cursors: Union[Unset, dict[str, Any]] = UNSET
-        if not isinstance(self.cursors, Unset):
-            cursors = self.cursors.to_dict()
-
         href = self.href
 
         limit = self.limit
 
         next_ = self.next_
+
+        cursors: Union[Unset, dict[str, Any]] = UNSET
+        if not isinstance(self.cursors, Unset):
+            cursors = self.cursors.to_dict()
 
         total = self.total
 
@@ -57,14 +57,14 @@ class CursorPagingPlayHistoryObject:
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
-        if cursors is not UNSET:
-            field_dict["cursors"] = cursors
         if href is not UNSET:
             field_dict["href"] = href
         if limit is not UNSET:
             field_dict["limit"] = limit
         if next_ is not UNSET:
             field_dict["next"] = next_
+        if cursors is not UNSET:
+            field_dict["cursors"] = cursors
         if total is not UNSET:
             field_dict["total"] = total
         if items is not UNSET:
@@ -78,18 +78,18 @@ class CursorPagingPlayHistoryObject:
         from ..models.play_history_object import PlayHistoryObject
 
         d = dict(src_dict)
+        href = d.pop("href", UNSET)
+
+        limit = d.pop("limit", UNSET)
+
+        next_ = d.pop("next", UNSET)
+
         _cursors = d.pop("cursors", UNSET)
         cursors: Union[Unset, CursorObject]
         if isinstance(_cursors, Unset):
             cursors = UNSET
         else:
             cursors = CursorObject.from_dict(_cursors)
-
-        href = d.pop("href", UNSET)
-
-        limit = d.pop("limit", UNSET)
-
-        next_ = d.pop("next", UNSET)
 
         total = d.pop("total", UNSET)
 
@@ -101,10 +101,10 @@ class CursorPagingPlayHistoryObject:
             items.append(items_item)
 
         cursor_paging_play_history_object = cls(
-            cursors=cursors,
             href=href,
             limit=limit,
             next_=next_,
+            cursors=cursors,
             total=total,
             items=items,
         )

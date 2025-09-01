@@ -82,7 +82,8 @@ def sync_detailed(
 ]:
     """Pause Playback
 
-     Pause playback on the user's account.
+     Pause playback on the user's account. This API only works for users who have Spotify Premium. The
+    order of execution is not guaranteed when you use this API with other Player API endpoints.
 
     Args:
         device_id (Union[Unset, str]): The id of the device this command is targeting. If not
@@ -117,7 +118,8 @@ def sync(
 ]:
     """Pause Playback
 
-     Pause playback on the user's account.
+     Pause playback on the user's account. This API only works for users who have Spotify Premium. The
+    order of execution is not guaranteed when you use this API with other Player API endpoints.
 
     Args:
         device_id (Union[Unset, str]): The id of the device this command is targeting. If not
@@ -147,7 +149,8 @@ async def asyncio_detailed(
 ]:
     """Pause Playback
 
-     Pause playback on the user's account.
+     Pause playback on the user's account. This API only works for users who have Spotify Premium. The
+    order of execution is not guaranteed when you use this API with other Player API endpoints.
 
     Args:
         device_id (Union[Unset, str]): The id of the device this command is targeting. If not
@@ -180,7 +183,8 @@ async def asyncio(
 ]:
     """Pause Playback
 
-     Pause playback on the user's account.
+     Pause playback on the user's account. This API only works for users who have Spotify Premium. The
+    order of execution is not guaranteed when you use this API with other Player API endpoints.
 
     Args:
         device_id (Union[Unset, str]): The id of the device this command is targeting. If not

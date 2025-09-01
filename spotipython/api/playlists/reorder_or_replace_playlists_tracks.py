@@ -130,8 +130,8 @@ def sync_detailed(
             api/concepts/spotify-uris-ids) to set, can be track or episode URIs. For example: `uris=sp
             otify:track:4iV5W9uYEdYUVa79Axb7Rh,spotify:track:1301WleyT98MSxVHPZCA6M,spotify:episode:51
             2ojhOuo1ktJprKbVcKyQ`<br/>A maximum of 100 items can be set in one request.
-        body (ReorderOrReplacePlaylistsTracksBody):  Example: {'insert_before': 3, 'range_length':
-            2, 'range_start': 1}.
+        body (ReorderOrReplacePlaylistsTracksBody):  Example: {'range_start': 1, 'insert_before':
+            3, 'range_length': 2}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -189,8 +189,8 @@ def sync(
             api/concepts/spotify-uris-ids) to set, can be track or episode URIs. For example: `uris=sp
             otify:track:4iV5W9uYEdYUVa79Axb7Rh,spotify:track:1301WleyT98MSxVHPZCA6M,spotify:episode:51
             2ojhOuo1ktJprKbVcKyQ`<br/>A maximum of 100 items can be set in one request.
-        body (ReorderOrReplacePlaylistsTracksBody):  Example: {'insert_before': 3, 'range_length':
-            2, 'range_start': 1}.
+        body (ReorderOrReplacePlaylistsTracksBody):  Example: {'range_start': 1, 'insert_before':
+            3, 'range_length': 2}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -243,8 +243,8 @@ async def asyncio_detailed(
             api/concepts/spotify-uris-ids) to set, can be track or episode URIs. For example: `uris=sp
             otify:track:4iV5W9uYEdYUVa79Axb7Rh,spotify:track:1301WleyT98MSxVHPZCA6M,spotify:episode:51
             2ojhOuo1ktJprKbVcKyQ`<br/>A maximum of 100 items can be set in one request.
-        body (ReorderOrReplacePlaylistsTracksBody):  Example: {'insert_before': 3, 'range_length':
-            2, 'range_start': 1}.
+        body (ReorderOrReplacePlaylistsTracksBody):  Example: {'range_start': 1, 'insert_before':
+            3, 'range_length': 2}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -300,8 +300,8 @@ async def asyncio(
             api/concepts/spotify-uris-ids) to set, can be track or episode URIs. For example: `uris=sp
             otify:track:4iV5W9uYEdYUVa79Axb7Rh,spotify:track:1301WleyT98MSxVHPZCA6M,spotify:episode:51
             2ojhOuo1ktJprKbVcKyQ`<br/>A maximum of 100 items can be set in one request.
-        body (ReorderOrReplacePlaylistsTracksBody):  Example: {'insert_before': 3, 'range_length':
-            2, 'range_start': 1}.
+        body (ReorderOrReplacePlaylistsTracksBody):  Example: {'range_start': 1, 'insert_before':
+            3, 'range_length': 2}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

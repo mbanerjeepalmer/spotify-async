@@ -5,7 +5,7 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 if TYPE_CHECKING:
-    from ..models.paging_object import PagingObject
+    from ..models.get_categories_response_200_categories import GetCategoriesResponse200Categories
 
 
 T = TypeVar("T", bound="GetCategoriesResponse200")
@@ -15,10 +15,10 @@ T = TypeVar("T", bound="GetCategoriesResponse200")
 class GetCategoriesResponse200:
     """
     Attributes:
-        categories (PagingObject):
+        categories (GetCategoriesResponse200Categories):
     """
 
-    categories: "PagingObject"
+    categories: "GetCategoriesResponse200Categories"
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -36,10 +36,10 @@ class GetCategoriesResponse200:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.paging_object import PagingObject
+        from ..models.get_categories_response_200_categories import GetCategoriesResponse200Categories
 
         d = dict(src_dict)
-        categories = PagingObject.from_dict(d.pop("categories"))
+        categories = GetCategoriesResponse200Categories.from_dict(d.pop("categories"))
 
         get_categories_response_200 = cls(
             categories=categories,

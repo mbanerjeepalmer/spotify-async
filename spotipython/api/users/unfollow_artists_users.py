@@ -49,9 +49,9 @@ def _parse_response(
 ) -> Optional[
     Union[Any, UnfollowArtistsUsersResponse401, UnfollowArtistsUsersResponse403, UnfollowArtistsUsersResponse429]
 ]:
-    if response.status_code == 200:
-        response_200 = cast(Any, None)
-        return response_200
+    if response.status_code == 204:
+        response_204 = cast(Any, None)
+        return response_204
 
     if response.status_code == 401:
         response_401 = UnfollowArtistsUsersResponse401.from_dict(response.json())

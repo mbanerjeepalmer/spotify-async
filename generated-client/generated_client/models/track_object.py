@@ -8,10 +8,10 @@ from ..models.track_object_type import TrackObjectType
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.artist_object import ArtistObject
     from ..models.external_id_object import ExternalIdObject
     from ..models.external_url_object import ExternalUrlObject
     from ..models.simplified_album_object import SimplifiedAlbumObject
+    from ..models.simplified_artist_object import SimplifiedArtistObject
     from ..models.track_object_linked_from import TrackObjectLinkedFrom
     from ..models.track_restriction_object import TrackRestrictionObject
 
@@ -24,8 +24,8 @@ class TrackObject:
     """
     Attributes:
         album (Union[Unset, SimplifiedAlbumObject]):
-        artists (Union[Unset, list['ArtistObject']]): The artists who performed the track. Each artist object includes a
-            link in `href` to more detailed information about the artist.
+        artists (Union[Unset, list['SimplifiedArtistObject']]): The artists who performed the track. Each artist object
+            includes a link in `href` to more detailed information about the artist.
         available_markets (Union[Unset, list[str]]): A list of the countries in which the track can be played,
             identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
         disc_number (Union[Unset, int]): The disc number (usually `1` unless the album consists of more than one disc).
@@ -36,7 +36,6 @@ class TrackObject:
         external_urls (Union[Unset, ExternalUrlObject]):
         href (Union[Unset, str]): A link to the Web API endpoint providing full details of the track.
         id (Union[Unset, str]): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the track.
-        is_local (Union[Unset, bool]): Whether or not the track is from a local file.
         is_playable (Union[Unset, bool]): Part of the response when [Track Relinking](/documentation/web-
             api/concepts/track-relinking) is applied. If `true`, the track is playable in the given market. Otherwise
             `false`.
@@ -44,6 +43,7 @@ class TrackObject:
             Relinking](/documentation/web-api/concepts/track-relinking) is applied, and the requested track has been
             replaced with different track. The track in the `linked_from` object contains information about the originally
             requested track.
+        restrictions (Union[Unset, TrackRestrictionObject]):
         name (Union[Unset, str]): The name of the track.
         popularity (Union[Unset, int]): The popularity of the track. The value will be between 0 and 100, with 100 being
             the most popular.<br/>The popularity of a track is a value between 0 and 100, with 100 being the most popular.
@@ -53,16 +53,16 @@ class TrackObject:
             single and an album) are rated independently. Artist and album popularity is derived mathematically from track
             popularity. _**Note**: the popularity value may lag actual popularity by a few days: the value is not updated in
             real time._
-        preview_url (Union[Unset, str]): A link to a 30 second preview (MP3 format) of the track. Can be `null`
-        restrictions (Union[Unset, TrackRestrictionObject]):
+        preview_url (Union[None, Unset, str]): A link to a 30 second preview (MP3 format) of the track. Can be `null`
         track_number (Union[Unset, int]): The number of the track. If an album has several discs, the track number is
             the number on the specified disc.
         type_ (Union[Unset, TrackObjectType]): The object type: "track".
         uri (Union[Unset, str]): The [Spotify URI](/documentation/web-api/concepts/spotify-uris-ids) for the track.
+        is_local (Union[Unset, bool]): Whether or not the track is from a local file.
     """
 
     album: Union[Unset, "SimplifiedAlbumObject"] = UNSET
-    artists: Union[Unset, list["ArtistObject"]] = UNSET
+    artists: Union[Unset, list["SimplifiedArtistObject"]] = UNSET
     available_markets: Union[Unset, list[str]] = UNSET
     disc_number: Union[Unset, int] = UNSET
     duration_ms: Union[Unset, int] = UNSET
@@ -71,16 +71,16 @@ class TrackObject:
     external_urls: Union[Unset, "ExternalUrlObject"] = UNSET
     href: Union[Unset, str] = UNSET
     id: Union[Unset, str] = UNSET
-    is_local: Union[Unset, bool] = UNSET
     is_playable: Union[Unset, bool] = UNSET
     linked_from: Union[Unset, "TrackObjectLinkedFrom"] = UNSET
+    restrictions: Union[Unset, "TrackRestrictionObject"] = UNSET
     name: Union[Unset, str] = UNSET
     popularity: Union[Unset, int] = UNSET
-    preview_url: Union[Unset, str] = UNSET
-    restrictions: Union[Unset, "TrackRestrictionObject"] = UNSET
+    preview_url: Union[None, Unset, str] = UNSET
     track_number: Union[Unset, int] = UNSET
     type_: Union[Unset, TrackObjectType] = UNSET
     uri: Union[Unset, str] = UNSET
+    is_local: Union[Unset, bool] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -117,23 +117,25 @@ class TrackObject:
 
         id = self.id
 
-        is_local = self.is_local
-
         is_playable = self.is_playable
 
         linked_from: Union[Unset, dict[str, Any]] = UNSET
         if not isinstance(self.linked_from, Unset):
             linked_from = self.linked_from.to_dict()
 
+        restrictions: Union[Unset, dict[str, Any]] = UNSET
+        if not isinstance(self.restrictions, Unset):
+            restrictions = self.restrictions.to_dict()
+
         name = self.name
 
         popularity = self.popularity
 
-        preview_url = self.preview_url
-
-        restrictions: Union[Unset, dict[str, Any]] = UNSET
-        if not isinstance(self.restrictions, Unset):
-            restrictions = self.restrictions.to_dict()
+        preview_url: Union[None, Unset, str]
+        if isinstance(self.preview_url, Unset):
+            preview_url = UNSET
+        else:
+            preview_url = self.preview_url
 
         track_number = self.track_number
 
@@ -142,6 +144,8 @@ class TrackObject:
             type_ = self.type_.value
 
         uri = self.uri
+
+        is_local = self.is_local
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -166,35 +170,35 @@ class TrackObject:
             field_dict["href"] = href
         if id is not UNSET:
             field_dict["id"] = id
-        if is_local is not UNSET:
-            field_dict["is_local"] = is_local
         if is_playable is not UNSET:
             field_dict["is_playable"] = is_playable
         if linked_from is not UNSET:
             field_dict["linked_from"] = linked_from
+        if restrictions is not UNSET:
+            field_dict["restrictions"] = restrictions
         if name is not UNSET:
             field_dict["name"] = name
         if popularity is not UNSET:
             field_dict["popularity"] = popularity
         if preview_url is not UNSET:
             field_dict["preview_url"] = preview_url
-        if restrictions is not UNSET:
-            field_dict["restrictions"] = restrictions
         if track_number is not UNSET:
             field_dict["track_number"] = track_number
         if type_ is not UNSET:
             field_dict["type"] = type_
         if uri is not UNSET:
             field_dict["uri"] = uri
+        if is_local is not UNSET:
+            field_dict["is_local"] = is_local
 
         return field_dict
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.artist_object import ArtistObject
         from ..models.external_id_object import ExternalIdObject
         from ..models.external_url_object import ExternalUrlObject
         from ..models.simplified_album_object import SimplifiedAlbumObject
+        from ..models.simplified_artist_object import SimplifiedArtistObject
         from ..models.track_object_linked_from import TrackObjectLinkedFrom
         from ..models.track_restriction_object import TrackRestrictionObject
 
@@ -209,7 +213,7 @@ class TrackObject:
         artists = []
         _artists = d.pop("artists", UNSET)
         for artists_item_data in _artists or []:
-            artists_item = ArtistObject.from_dict(artists_item_data)
+            artists_item = SimplifiedArtistObject.from_dict(artists_item_data)
 
             artists.append(artists_item)
 
@@ -239,8 +243,6 @@ class TrackObject:
 
         id = d.pop("id", UNSET)
 
-        is_local = d.pop("is_local", UNSET)
-
         is_playable = d.pop("is_playable", UNSET)
 
         _linked_from = d.pop("linked_from", UNSET)
@@ -250,18 +252,25 @@ class TrackObject:
         else:
             linked_from = TrackObjectLinkedFrom.from_dict(_linked_from)
 
-        name = d.pop("name", UNSET)
-
-        popularity = d.pop("popularity", UNSET)
-
-        preview_url = d.pop("preview_url", UNSET)
-
         _restrictions = d.pop("restrictions", UNSET)
         restrictions: Union[Unset, TrackRestrictionObject]
         if isinstance(_restrictions, Unset):
             restrictions = UNSET
         else:
             restrictions = TrackRestrictionObject.from_dict(_restrictions)
+
+        name = d.pop("name", UNSET)
+
+        popularity = d.pop("popularity", UNSET)
+
+        def _parse_preview_url(data: object) -> Union[None, Unset, str]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(Union[None, Unset, str], data)
+
+        preview_url = _parse_preview_url(d.pop("preview_url", UNSET))
 
         track_number = d.pop("track_number", UNSET)
 
@@ -274,6 +283,8 @@ class TrackObject:
 
         uri = d.pop("uri", UNSET)
 
+        is_local = d.pop("is_local", UNSET)
+
         track_object = cls(
             album=album,
             artists=artists,
@@ -285,16 +296,16 @@ class TrackObject:
             external_urls=external_urls,
             href=href,
             id=id,
-            is_local=is_local,
             is_playable=is_playable,
             linked_from=linked_from,
+            restrictions=restrictions,
             name=name,
             popularity=popularity,
             preview_url=preview_url,
-            restrictions=restrictions,
             track_number=track_number,
             type_=type_,
             uri=uri,
+            is_local=is_local,
         )
 
         track_object.additional_properties = d

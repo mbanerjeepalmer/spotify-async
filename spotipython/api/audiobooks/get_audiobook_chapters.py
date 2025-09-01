@@ -109,8 +109,8 @@ def sync_detailed(
 ]:
     """Get Audiobook Chapters
 
-     Get Spotify catalog information about an audiobook's chapters.<br />
-    **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+     Get Spotify catalog information about an audiobook's chapters. Audiobooks are only available within
+    the US, UK, Canada, Ireland, New Zealand and Australia markets.
 
     Args:
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids)
@@ -126,7 +126,7 @@ def sync_detailed(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
@@ -174,8 +174,8 @@ def sync(
 ]:
     """Get Audiobook Chapters
 
-     Get Spotify catalog information about an audiobook's chapters.<br />
-    **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+     Get Spotify catalog information about an audiobook's chapters. Audiobooks are only available within
+    the US, UK, Canada, Ireland, New Zealand and Australia markets.
 
     Args:
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids)
@@ -191,7 +191,7 @@ def sync(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
@@ -234,8 +234,8 @@ async def asyncio_detailed(
 ]:
     """Get Audiobook Chapters
 
-     Get Spotify catalog information about an audiobook's chapters.<br />
-    **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+     Get Spotify catalog information about an audiobook's chapters. Audiobooks are only available within
+    the US, UK, Canada, Ireland, New Zealand and Australia markets.
 
     Args:
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids)
@@ -251,7 +251,7 @@ async def asyncio_detailed(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.
@@ -297,8 +297,8 @@ async def asyncio(
 ]:
     """Get Audiobook Chapters
 
-     Get Spotify catalog information about an audiobook's chapters.<br />
-    **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**
+     Get Spotify catalog information about an audiobook's chapters. Audiobooks are only available within
+    the US, UK, Canada, Ireland, New Zealand and Australia markets.
 
     Args:
         id (str): The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids)
@@ -314,7 +314,7 @@ async def asyncio(
               _**Note**: If neither market or user country are provided, the content is considered
             unavailable for the client._<br/>
               Users can view the country that is associated with their account in the [account
-            settings](https://www.spotify.com/se/account/overview/).
+            settings](https://www.spotify.com/account/overview/).
              Example: ES.
         limit (Union[Unset, int]): The maximum number of items to return. Default: 20. Minimum: 1.
             Maximum: 50.

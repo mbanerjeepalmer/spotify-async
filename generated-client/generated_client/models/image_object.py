@@ -11,25 +11,25 @@ T = TypeVar("T", bound="ImageObject")
 class ImageObject:
     """
     Attributes:
-        height (Union[None, int]): The image height in pixels.
-             Example: 300.
         url (str): The source URL of the image.
              Example: https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228
             .
+        height (Union[None, int]): The image height in pixels.
+             Example: 300.
         width (Union[None, int]): The image width in pixels.
              Example: 300.
     """
 
-    height: Union[None, int]
     url: str
+    height: Union[None, int]
     width: Union[None, int]
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        url = self.url
+
         height: Union[None, int]
         height = self.height
-
-        url = self.url
 
         width: Union[None, int]
         width = self.width
@@ -38,8 +38,8 @@ class ImageObject:
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "height": height,
                 "url": url,
+                "height": height,
                 "width": width,
             }
         )
@@ -49,6 +49,7 @@ class ImageObject:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
+        url = d.pop("url")
 
         def _parse_height(data: object) -> Union[None, int]:
             if data is None:
@@ -56,8 +57,6 @@ class ImageObject:
             return cast(Union[None, int], data)
 
         height = _parse_height(d.pop("height"))
-
-        url = d.pop("url")
 
         def _parse_width(data: object) -> Union[None, int]:
             if data is None:
@@ -67,8 +66,8 @@ class ImageObject:
         width = _parse_width(d.pop("width"))
 
         image_object = cls(
-            height=height,
             url=url,
+            height=height,
             width=width,
         )
 

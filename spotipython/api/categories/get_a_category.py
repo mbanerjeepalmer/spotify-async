@@ -15,12 +15,9 @@ from ...types import UNSET, Response, Unset
 def _get_kwargs(
     category_id: str,
     *,
-    country: Union[Unset, str] = UNSET,
     locale: Union[Unset, str] = UNSET,
 ) -> dict[str, Any]:
     params: dict[str, Any] = {}
-
-    params["country"] = country
 
     params["locale"] = locale
 
@@ -79,7 +76,6 @@ def sync_detailed(
     category_id: str,
     *,
     client: AuthenticatedClient,
-    country: Union[Unset, str] = UNSET,
     locale: Union[Unset, str] = UNSET,
 ) -> Response[Union[CategoryObject, GetACategoryResponse401, GetACategoryResponse403, GetACategoryResponse429]]:
     """Get Single Browse Category
@@ -91,10 +87,6 @@ def sync_detailed(
         category_id (str): The [Spotify category ID](/documentation/web-api/concepts/spotify-uris-
             ids) for the category.
              Example: dinner.
-        country (Union[Unset, str]): A country: an [ISO 3166-1 alpha-2 country
-            code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter to ensure
-            that the category exists for a particular country.
-             Example: SE.
         locale (Union[Unset, str]): The desired language, consisting of an [ISO
             639-1](http://en.wikipedia.org/wiki/ISO_639-1) language code and an [ISO 3166-1 alpha-2
             country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), joined by an underscore.
@@ -114,7 +106,6 @@ def sync_detailed(
 
     kwargs = _get_kwargs(
         category_id=category_id,
-        country=country,
         locale=locale,
     )
 
@@ -129,7 +120,6 @@ def sync(
     category_id: str,
     *,
     client: AuthenticatedClient,
-    country: Union[Unset, str] = UNSET,
     locale: Union[Unset, str] = UNSET,
 ) -> Optional[Union[CategoryObject, GetACategoryResponse401, GetACategoryResponse403, GetACategoryResponse429]]:
     """Get Single Browse Category
@@ -141,10 +131,6 @@ def sync(
         category_id (str): The [Spotify category ID](/documentation/web-api/concepts/spotify-uris-
             ids) for the category.
              Example: dinner.
-        country (Union[Unset, str]): A country: an [ISO 3166-1 alpha-2 country
-            code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter to ensure
-            that the category exists for a particular country.
-             Example: SE.
         locale (Union[Unset, str]): The desired language, consisting of an [ISO
             639-1](http://en.wikipedia.org/wiki/ISO_639-1) language code and an [ISO 3166-1 alpha-2
             country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), joined by an underscore.
@@ -165,7 +151,6 @@ def sync(
     return sync_detailed(
         category_id=category_id,
         client=client,
-        country=country,
         locale=locale,
     ).parsed
 
@@ -174,7 +159,6 @@ async def asyncio_detailed(
     category_id: str,
     *,
     client: AuthenticatedClient,
-    country: Union[Unset, str] = UNSET,
     locale: Union[Unset, str] = UNSET,
 ) -> Response[Union[CategoryObject, GetACategoryResponse401, GetACategoryResponse403, GetACategoryResponse429]]:
     """Get Single Browse Category
@@ -186,10 +170,6 @@ async def asyncio_detailed(
         category_id (str): The [Spotify category ID](/documentation/web-api/concepts/spotify-uris-
             ids) for the category.
              Example: dinner.
-        country (Union[Unset, str]): A country: an [ISO 3166-1 alpha-2 country
-            code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter to ensure
-            that the category exists for a particular country.
-             Example: SE.
         locale (Union[Unset, str]): The desired language, consisting of an [ISO
             639-1](http://en.wikipedia.org/wiki/ISO_639-1) language code and an [ISO 3166-1 alpha-2
             country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), joined by an underscore.
@@ -209,7 +189,6 @@ async def asyncio_detailed(
 
     kwargs = _get_kwargs(
         category_id=category_id,
-        country=country,
         locale=locale,
     )
 
@@ -222,7 +201,6 @@ async def asyncio(
     category_id: str,
     *,
     client: AuthenticatedClient,
-    country: Union[Unset, str] = UNSET,
     locale: Union[Unset, str] = UNSET,
 ) -> Optional[Union[CategoryObject, GetACategoryResponse401, GetACategoryResponse403, GetACategoryResponse429]]:
     """Get Single Browse Category
@@ -234,10 +212,6 @@ async def asyncio(
         category_id (str): The [Spotify category ID](/documentation/web-api/concepts/spotify-uris-
             ids) for the category.
              Example: dinner.
-        country (Union[Unset, str]): A country: an [ISO 3166-1 alpha-2 country
-            code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter to ensure
-            that the category exists for a particular country.
-             Example: SE.
         locale (Union[Unset, str]): The desired language, consisting of an [ISO
             639-1](http://en.wikipedia.org/wiki/ISO_639-1) language code and an [ISO 3166-1 alpha-2
             country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), joined by an underscore.
@@ -259,7 +233,6 @@ async def asyncio(
         await asyncio_detailed(
             category_id=category_id,
             client=client,
-            country=country,
             locale=locale,
         )
     ).parsed

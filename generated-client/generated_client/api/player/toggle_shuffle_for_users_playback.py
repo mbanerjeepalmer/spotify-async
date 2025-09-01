@@ -101,7 +101,9 @@ def sync_detailed(
 ]:
     """Toggle Playback Shuffle
 
-     Toggle shuffle on or off for user’s playback.
+     Toggle shuffle on or off for user’s playback. This API only works for users who have Spotify
+    Premium. The order of execution is not guaranteed when you use this API with other Player API
+    endpoints.
 
     Args:
         state (bool): **true** : Shuffle user's playback.<br/>
@@ -146,7 +148,9 @@ def sync(
 ]:
     """Toggle Playback Shuffle
 
-     Toggle shuffle on or off for user’s playback.
+     Toggle shuffle on or off for user’s playback. This API only works for users who have Spotify
+    Premium. The order of execution is not guaranteed when you use this API with other Player API
+    endpoints.
 
     Args:
         state (bool): **true** : Shuffle user's playback.<br/>
@@ -186,7 +190,9 @@ async def asyncio_detailed(
 ]:
     """Toggle Playback Shuffle
 
-     Toggle shuffle on or off for user’s playback.
+     Toggle shuffle on or off for user’s playback. This API only works for users who have Spotify
+    Premium. The order of execution is not guaranteed when you use this API with other Player API
+    endpoints.
 
     Args:
         state (bool): **true** : Shuffle user's playback.<br/>
@@ -229,7 +235,9 @@ async def asyncio(
 ]:
     """Toggle Playback Shuffle
 
-     Toggle shuffle on or off for user’s playback.
+     Toggle shuffle on or off for user’s playback. This API only works for users who have Spotify
+    Premium. The order of execution is not guaranteed when you use this API with other Player API
+    endpoints.
 
     Args:
         state (bool): **true** : Shuffle user's playback.<br/>

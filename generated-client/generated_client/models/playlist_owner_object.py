@@ -9,7 +9,6 @@ from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.external_url_object import ExternalUrlObject
-    from ..models.followers_object import FollowersObject
 
 
 T = TypeVar("T", bound="PlaylistOwnerObject")
@@ -20,7 +19,6 @@ class PlaylistOwnerObject:
     """
     Attributes:
         external_urls (Union[Unset, ExternalUrlObject]):
-        followers (Union[Unset, FollowersObject]):
         href (Union[Unset, str]): A link to the Web API endpoint for this user.
         id (Union[Unset, str]): The [Spotify user ID](/documentation/web-api/concepts/spotify-uris-ids) for this user.
         type_ (Union[Unset, PlaylistUserObjectType]): The object type.
@@ -29,7 +27,6 @@ class PlaylistOwnerObject:
     """
 
     external_urls: Union[Unset, "ExternalUrlObject"] = UNSET
-    followers: Union[Unset, "FollowersObject"] = UNSET
     href: Union[Unset, str] = UNSET
     id: Union[Unset, str] = UNSET
     type_: Union[Unset, PlaylistUserObjectType] = UNSET
@@ -41,10 +38,6 @@ class PlaylistOwnerObject:
         external_urls: Union[Unset, dict[str, Any]] = UNSET
         if not isinstance(self.external_urls, Unset):
             external_urls = self.external_urls.to_dict()
-
-        followers: Union[Unset, dict[str, Any]] = UNSET
-        if not isinstance(self.followers, Unset):
-            followers = self.followers.to_dict()
 
         href = self.href
 
@@ -67,8 +60,6 @@ class PlaylistOwnerObject:
         field_dict.update({})
         if external_urls is not UNSET:
             field_dict["external_urls"] = external_urls
-        if followers is not UNSET:
-            field_dict["followers"] = followers
         if href is not UNSET:
             field_dict["href"] = href
         if id is not UNSET:
@@ -85,7 +76,6 @@ class PlaylistOwnerObject:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.external_url_object import ExternalUrlObject
-        from ..models.followers_object import FollowersObject
 
         d = dict(src_dict)
         _external_urls = d.pop("external_urls", UNSET)
@@ -94,13 +84,6 @@ class PlaylistOwnerObject:
             external_urls = UNSET
         else:
             external_urls = ExternalUrlObject.from_dict(_external_urls)
-
-        _followers = d.pop("followers", UNSET)
-        followers: Union[Unset, FollowersObject]
-        if isinstance(_followers, Unset):
-            followers = UNSET
-        else:
-            followers = FollowersObject.from_dict(_followers)
 
         href = d.pop("href", UNSET)
 
@@ -126,7 +109,6 @@ class PlaylistOwnerObject:
 
         playlist_owner_object = cls(
             external_urls=external_urls,
-            followers=followers,
             href=href,
             id=id,
             type_=type_,

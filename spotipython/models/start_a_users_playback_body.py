@@ -23,24 +23,28 @@ class StartAUsersPlaybackBody:
         context_uri (Union[Unset, str]): Optional. Spotify URI of the context to play.
             Valid contexts are albums, artists & playlists.
             `{context_uri:"spotify:album:1Je1IMUlBXcx1Fz0WE7oPT"}`
+        uris (Union[Unset, list[str]]): Optional. A JSON array of the Spotify track URIs to play.
+            For example: `{"uris": ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"]}`
         offset (Union[Unset, StartAUsersPlaybackBodyOffset]): Optional. Indicates from where in the context playback
             should start. Only available when context_uri corresponds to an album or playlist object
             "position" is zero based and can’t be negative. Example: `"offset": {"position": 5}`
             "uri" is a string representing the uri of the item to start at. Example: `"offset": {"uri":
             "spotify:track:1301WleyT98MSxVHPZCA6M"}`
         position_ms (Union[Unset, int]): integer
-        uris (Union[Unset, list[str]]): Optional. A JSON array of the Spotify track URIs to play.
-            For example: `{"uris": ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"]}`
     """
 
     context_uri: Union[Unset, str] = UNSET
+    uris: Union[Unset, list[str]] = UNSET
     offset: Union[Unset, "StartAUsersPlaybackBodyOffset"] = UNSET
     position_ms: Union[Unset, int] = UNSET
-    uris: Union[Unset, list[str]] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         context_uri = self.context_uri
+
+        uris: Union[Unset, list[str]] = UNSET
+        if not isinstance(self.uris, Unset):
+            uris = self.uris
 
         offset: Union[Unset, dict[str, Any]] = UNSET
         if not isinstance(self.offset, Unset):
@@ -48,21 +52,17 @@ class StartAUsersPlaybackBody:
 
         position_ms = self.position_ms
 
-        uris: Union[Unset, list[str]] = UNSET
-        if not isinstance(self.uris, Unset):
-            uris = self.uris
-
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if context_uri is not UNSET:
             field_dict["context_uri"] = context_uri
+        if uris is not UNSET:
+            field_dict["uris"] = uris
         if offset is not UNSET:
             field_dict["offset"] = offset
         if position_ms is not UNSET:
             field_dict["position_ms"] = position_ms
-        if uris is not UNSET:
-            field_dict["uris"] = uris
 
         return field_dict
 
@@ -73,6 +73,8 @@ class StartAUsersPlaybackBody:
         d = dict(src_dict)
         context_uri = d.pop("context_uri", UNSET)
 
+        uris = cast(list[str], d.pop("uris", UNSET))
+
         _offset = d.pop("offset", UNSET)
         offset: Union[Unset, StartAUsersPlaybackBodyOffset]
         if isinstance(_offset, Unset):
@@ -82,13 +84,11 @@ class StartAUsersPlaybackBody:
 
         position_ms = d.pop("position_ms", UNSET)
 
-        uris = cast(list[str], d.pop("uris", UNSET))
-
         start_a_users_playback_body = cls(
             context_uri=context_uri,
+            uris=uris,
             offset=offset,
             position_ms=position_ms,
-            uris=uris,
         )
 
         start_a_users_playback_body.additional_properties = d

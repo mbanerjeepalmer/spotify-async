@@ -17,7 +17,8 @@ class FollowPlaylistBody:
 
     Attributes:
         public (Union[Unset, bool]): Defaults to `true`. If `true` the playlist will be included in user's public
-            playlists, if `false` it will remain private.
+            playlists (added to profile), if `false` it will remain private. For more about public/private status, see
+            [Working with Playlists](/documentation/web-api/concepts/playlists)
     """
 
     public: Union[Unset, bool] = UNSET
