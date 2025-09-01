@@ -1,11 +1,25 @@
 [project]
 name = "spotify-async"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.0.1"
+description = "Spotify Web API client library. Supports async and typed."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "attrs>=25.3.0",
+    "httpx>=0.28.1",
+    "python-dateutil>=2.9.0.post0",
     "python-dotenv>=1.1.1",
+]
+
+authors = [
+    { name="Maurice Banerjee Palmer", email="spotify-async@maurice.fm"},
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
 ]
 
 [dependency-groups]
@@ -14,6 +28,11 @@ dev = [
     "pytest>=8.4.1",
     "pytest-asyncio>=1.1.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/mbanerjeepalmer/spotify-async"
+
+
 
 [build-system]
 # TODO is this the correct version constraint?
