@@ -36,8 +36,6 @@ paths:
   /albums/{id}:
     get:
       operationId: get-an-album
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       tags:
         - Albums
       summary: |
@@ -61,8 +59,6 @@ paths:
   /albums:
     get:
       operationId: get-multiple-albums
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       tags:
         - Albums
       summary: |
@@ -86,8 +82,6 @@ paths:
   /albums/{id}/tracks:
     get:
       operationId: get-an-albums-tracks
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       tags:
         - Albums
         - Tracks
@@ -117,8 +111,6 @@ paths:
       tags:
         - Artists
       operationId: get-an-artist
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       summary: |
         Get Artist
       description: |
@@ -141,8 +133,6 @@ paths:
       tags:
         - Artists
       operationId: get-multiple-artists
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       summary: |
         Get Several Artists
       description: |
@@ -174,8 +164,6 @@ paths:
         - Artists
         - Albums
       operationId: get-an-artists-albums
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       summary: |
         Get Artist's Albums
       description: |
@@ -203,8 +191,6 @@ paths:
         - Artists
         - Tracks
       operationId: get-an-artists-top-tracks
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       summary: |
         Get Artist's Top Tracks
       description: |
@@ -229,8 +215,6 @@ paths:
       tags:
         - Artists
       operationId: get-an-artists-related-artists
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       summary: |
         Get Artist's Related Artists
       description: |
@@ -253,8 +237,6 @@ paths:
       tags:
         - Shows
       operationId: get-a-show
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       summary: |
         Get Show
       description: |
@@ -280,8 +262,6 @@ paths:
       tags:
         - Shows
       operationId: get-multiple-shows
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       summary: |
         Get Several Shows
       description: |
@@ -306,8 +286,6 @@ paths:
         - Shows
         - Episodes
       operationId: get-a-shows-episodes
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       summary: |
         Get Show Episodes
       description: |
@@ -334,8 +312,6 @@ paths:
       tags:
         - Episodes
       operationId: get-an-episode
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       summary: |
         Get Episode
       description: |
@@ -370,8 +346,6 @@ paths:
       tags:
         - Episodes
       operationId: get-multiple-episodes
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       summary: |
         Get Several Episodes
       description: |
@@ -402,8 +376,6 @@ paths:
   /audiobooks/{id}:
     get:
       operationId: get-an-audiobook
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       tags:
         - Audiobooks
       summary: |
@@ -431,8 +403,6 @@ paths:
   /audiobooks:
     get:
       operationId: get-multiple-audiobooks
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       tags:
         - Audiobooks
       summary: |
@@ -456,8 +426,6 @@ paths:
   /audiobooks/{id}/chapters:
     get:
       operationId: get-audiobook-chapters
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       tags:
         - Audiobooks
         - Chapters
@@ -579,8 +547,6 @@ paths:
   /chapters/{id}:
     get:
       operationId: get-a-chapter
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       tags:
         - Chapters
       summary: |
@@ -604,8 +570,6 @@ paths:
   /chapters:
     get:
       operationId: get-several-chapters
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataPolicyList"
       tags:
         - Chapters
       summary: |
@@ -631,8 +595,6 @@ paths:
       tags:
         - Tracks
       operationId: get-track
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataWithMachineLearningPolicyList"
       summary: |
         Get Track
       description: |
@@ -666,8 +628,6 @@ paths:
       tags:
         - Tracks
       operationId: get-several-tracks
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataWithMachineLearningPolicyList"
       summary: |
         Get Several Tracks
       description: |
@@ -699,8 +659,6 @@ paths:
       tags:
         - Search
       operationId: search
-      x-spotify-policy-list:
-        - $ref: "#/components/x-spotify-policy/policies/MachineLearning"
       summary: |
         Search for Item
       description: |
@@ -822,8 +780,6 @@ paths:
       tags:
         - Playlists
       operationId: get-playlist
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataWithMachineLearningPolicyList"
       summary: |
         Get Playlist
       description: |
@@ -919,8 +875,6 @@ paths:
         - Playlists
         - Tracks
       operationId: get-playlists-tracks
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataWithMachineLearningPolicyList"
       summary: |
         Get Playlist Items
       description: |
@@ -1907,8 +1861,6 @@ paths:
       tags:
         - Playlists
       operationId: get-featured-playlists
-      x-spotify-policy-list:
-        - $ref: "#/components/x-spotify-policy/policies/MultipleIntegrations"
       summary: |
         Get Featured Playlists
       description: |
@@ -2046,8 +1998,6 @@ paths:
       tags:
         - Playlists
       operationId: get-playlist-cover
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/metadataWithMachineLearningPolicyList"
       summary: |
         Get Playlist Cover Image
       description: |
@@ -2103,8 +2053,6 @@ paths:
       tags:
         - Albums
       operationId: get-new-releases
-      x-spotify-policy-list:
-        - $ref: "#/components/x-spotify-policy/policies/MultipleIntegrations"
       summary: |
         Get New Releases
       description: |
@@ -2381,8 +2329,6 @@ paths:
       tags:
         - Tracks
       operationId: get-several-audio-features
-      x-spotify-policy-list:
-        - $ref: "#/components/x-spotify-policy/policies/MachineLearning"
       summary: |
         Get Several Tracks' Audio Features
       description: |
@@ -2415,8 +2361,6 @@ paths:
       tags:
         - Tracks
       operationId: get-audio-features
-      x-spotify-policy-list:
-        - $ref: "#/components/x-spotify-policy/policies/MachineLearning"
       summary: |
         Get Track's Audio Features
       description: |
@@ -2481,8 +2425,6 @@ paths:
       tags:
         - Tracks
       operationId: get-recommendations
-      x-spotify-policy-list:
-        - $ref: "#/components/x-spotify-policy/policies/MachineLearning"
       summary: |
         Get Recommendations
       description: |
@@ -2962,8 +2904,6 @@ paths:
       tags:
         - Player
       operationId: get-information-about-the-users-current-playback
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/playerPolicyList"
       summary: |
         Get Playback State
       description: |
@@ -2989,8 +2929,6 @@ paths:
       tags:
         - Player
       operationId: transfer-a-users-playback
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/playerPolicyList"
       summary: |
         Transfer Playback
       description: |
@@ -3056,8 +2994,6 @@ paths:
       tags:
         - Player
       operationId: get-the-users-currently-playing-track
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/playerPolicyList"
       summary: |
         Get Currently Playing Track
       description: |
@@ -3083,8 +3019,6 @@ paths:
       tags:
         - Player
       operationId: start-a-users-playback
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/playerPolicyList"
       summary: |
         Start/Resume Playback
       description: |
@@ -3153,8 +3087,6 @@ paths:
       tags:
         - Player
       operationId: pause-a-users-playback
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/playerPolicyList"
       summary: |
         Pause Playback
       description: |
@@ -3186,8 +3118,6 @@ paths:
       tags:
         - Player
       operationId: skip-users-playback-to-next-track
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/playerPolicyList"
       summary: |
         Skip To Next
       description: |
@@ -3219,8 +3149,6 @@ paths:
       tags:
         - Player
       operationId: skip-users-playback-to-previous-track
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/playerPolicyList"
       summary: |
         Skip To Previous
       description: |
@@ -3253,8 +3181,6 @@ paths:
       tags:
         - Player
       operationId: seek-to-position-in-currently-playing-track
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/playerPolicyList"
       summary: |
         Seek To Position
       description: |
@@ -3424,8 +3350,6 @@ paths:
       tags:
         - Player
       operationId: get-recently-played
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/playerPolicyList"
       summary: |
         Get Recently Played Tracks
       description: |
@@ -3482,8 +3406,6 @@ paths:
       tags:
         - Player
       operationId: get-queue
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/playerPolicyList"
       summary: |
         Get the User's Queue
       description: |
@@ -3505,8 +3427,6 @@ paths:
       tags:
         - Player
       operationId: add-to-queue
-      x-spotify-policy-list:
-        $ref: "#/components/x-spotify-policy/playerPolicyList"
       summary: |
         Add Item to Playback Queue
       description: |
@@ -3622,25 +3542,6 @@ components:
               Upload images to Spotify on your behalf.
             streaming: |
               Play content and control playback on your other devices.
-  x-spotify-policy:
-    policies:
-      $ref: "../policies.yaml"
-    metadataPolicyList:
-      - $ref: "#/components/x-spotify-policy/policies/Downloading"
-      - $ref: "#/components/x-spotify-policy/policies/VisualAlteration"
-      - $ref: "#/components/x-spotify-policy/policies/Attribution"
-    metadataWithMachineLearningPolicyList:
-      - $ref: "#/components/x-spotify-policy/policies/Downloading"
-      - $ref: "#/components/x-spotify-policy/policies/VisualAlteration"
-      - $ref: "#/components/x-spotify-policy/policies/Attribution"
-      - $ref: "#/components/x-spotify-policy/policies/MachineLearning"
-    playerPolicyList:
-      - $ref: "#/components/x-spotify-policy/policies/CommercialStreaming"
-      - $ref: "#/components/x-spotify-policy/policies/ContentAlteration"
-      - $ref: "#/components/x-spotify-policy/policies/Synchronization"
-      - $ref: "#/components/x-spotify-policy/policies/Broadcasting"
-    downloading:
-      $ref: "#/components/x-spotify-policy/policies/Downloading"
   responses:
     Unauthorized:
       description: |
@@ -5120,8 +5021,6 @@ components:
           nullable: true
           description: |
             A URL to a 30 second preview (MP3 format) of the track.
-          x-spotify-policy-list:
-            - $ref: "#/components/x-spotify-policy/policies/StandalonePreview"
         track_number:
           type: integer
           description: |
@@ -5872,8 +5771,6 @@ components:
           nullable: true
           description: |
             A link to a 30 second preview (MP3 format) of the track. Can be `null`
-          x-spotify-policy-list:
-            - $ref: "#/components/x-spotify-policy/policies/StandalonePreview"
         track_number:
           type: integer
           description: |
@@ -5942,8 +5839,6 @@ components:
           example: https://p.scdn.co/mp3-preview/2f37da1d4221f40b9d1a98cd191f4d6f1646ad17
           description: |
             A URL to a 30 second preview (MP3 format) of the episode. `null` if not available.
-          x-spotify-policy-list:
-            - $ref: "#/components/x-spotify-policy/policies/StandalonePreview"
         description:
           type: string
           example: |
@@ -6478,8 +6373,6 @@ components:
           example: https://p.scdn.co/mp3-preview/2f37da1d4221f40b9d1a98cd191f4d6f1646ad17
           description: |
             A URL to a 30 second preview (MP3 format) of the chapter. `null` if not available.
-          x-spotify-policy-list:
-            - $ref: "#/components/x-spotify-policy/policies/StandalonePreview"
         available_markets:
           type: array
           items:
