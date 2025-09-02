@@ -1,9 +1,9 @@
-from unittest import result
 import pytest
 from spotipython.helpers import get_spotify_token, parse_retry_after
 
 from spotipython import AuthenticatedClient
 from spotipython.api.search import search
+from spotipython.api.shows import get_a_show
 import spotipython
 
 from dotenv import load_dotenv
@@ -13,6 +13,7 @@ from http import HTTPStatus
 import logging
 
 import spotipython.models
+from spotipython.models.show_object import ShowObject
 
 logger = logging.getLogger(__name__)
 
@@ -96,3 +97,19 @@ async def test_can_get_episodes():
         for e in results.episodes.items:
             logger.debug(f"{e.name}")
             assert e.name, "Episode didn't have a name"
+
+
+@pytest.mark.asyncio
+async def test_can_get_show():
+    show_id = "17YfG23eMbfLBaDPqucgzZ"
+    token = await get_spotify_token()
+    async with AuthenticatedClient(
+        base_url="https://api.spotify.com/v1",
+        token=token,
+        raise_on_unexpected_status=True,
+    ) as client:
+        resp = await get_a_show.asyncio_detailed(show_id, client=client)
+
+        result = resp.parsed
+        assert isinstance(result, ShowObject)
+        assert result.name == "In Our Time"

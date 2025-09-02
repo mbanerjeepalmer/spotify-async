@@ -1,10 +1,11 @@
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar, cast
+from typing import TYPE_CHECKING, Any, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..models.show_base_type import ShowBaseType
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.copyright_object import CopyrightObject
@@ -19,8 +20,6 @@ T = TypeVar("T", bound="SimplifiedShowObject")
 class SimplifiedShowObject:
     """
     Attributes:
-        available_markets (list[str]): A list of the countries in which the show can be played, identified by their [ISO
-            3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
         copyrights (list['CopyrightObject']): The copyright statements of the show.
         description (str): A description of the show. HTML tags are stripped away from this field, use
             `html_description` field in case HTML tags are needed.
@@ -41,9 +40,10 @@ class SimplifiedShowObject:
         type_ (ShowBaseType): The object type.
         uri (str): The [Spotify URI](/documentation/web-api/concepts/spotify-uris-ids) for the show.
         total_episodes (int): The total number of episodes in the show.
+        available_markets (Union[Unset, list[str]]): A list of the countries in which the show can be played, identified
+            by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
     """
 
-    available_markets: list[str]
     copyrights: list["CopyrightObject"]
     description: str
     html_description: str
@@ -60,11 +60,10 @@ class SimplifiedShowObject:
     type_: ShowBaseType
     uri: str
     total_episodes: int
+    available_markets: Union[Unset, list[str]] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        available_markets = self.available_markets
-
         copyrights = []
         for copyrights_item_data in self.copyrights:
             copyrights_item = copyrights_item_data.to_dict()
@@ -103,11 +102,14 @@ class SimplifiedShowObject:
 
         total_episodes = self.total_episodes
 
+        available_markets: Union[Unset, list[str]] = UNSET
+        if not isinstance(self.available_markets, Unset):
+            available_markets = self.available_markets
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "available_markets": available_markets,
                 "copyrights": copyrights,
                 "description": description,
                 "html_description": html_description,
@@ -126,6 +128,8 @@ class SimplifiedShowObject:
                 "total_episodes": total_episodes,
             }
         )
+        if available_markets is not UNSET:
+            field_dict["available_markets"] = available_markets
 
         return field_dict
 
@@ -136,8 +140,6 @@ class SimplifiedShowObject:
         from ..models.image_object import ImageObject
 
         d = dict(src_dict)
-        available_markets = cast(list[str], d.pop("available_markets"))
-
         copyrights = []
         _copyrights = d.pop("copyrights")
         for copyrights_item_data in _copyrights:
@@ -180,8 +182,9 @@ class SimplifiedShowObject:
 
         total_episodes = d.pop("total_episodes")
 
+        available_markets = cast(list[str], d.pop("available_markets", UNSET))
+
         simplified_show_object = cls(
-            available_markets=available_markets,
             copyrights=copyrights,
             description=description,
             html_description=html_description,
@@ -198,6 +201,7 @@ class SimplifiedShowObject:
             type_=type_,
             uri=uri,
             total_episodes=total_episodes,
+            available_markets=available_markets,
         )
 
         simplified_show_object.additional_properties = d
